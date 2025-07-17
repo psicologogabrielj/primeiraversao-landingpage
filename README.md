@@ -1,4 +1,16 @@
-# Welcome to your Lovable project
+# Landing Page - Psicólogo Clínico
+
+Uma landing page profissional para psicólogo clínico especializado em atendimento online.
+
+## Características
+
+- **Design profissional** com cores escuras e destaques dourados
+- **Seções personalizáveis** para informações do psicólogo
+- **Responsivo** para todos os dispositivos
+- **Integração com WhatsApp** para agendamento de consultas
+- **Seção de depoimentos** de pacientes
+- **Integração com Instagram** para mostrar conteúdos
+- **Animações suaves** e transições elegantes
 
 ## Project info
 
