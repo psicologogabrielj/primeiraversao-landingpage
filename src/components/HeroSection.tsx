@@ -74,7 +74,7 @@ export const HeroSection = () => {
             <div className="relative">
               <div className="absolute -inset-4 bg-primary/20 rounded-full blur-xl animate-glow" />
               <img 
-                src={psychologistPhoto} 
+                src="/lovable-uploads/f18bb6da-f51f-4400-9156-6e593a7a4d56.png" 
                 alt="Psicólogo clínico" 
                 className="relative w-80 h-80 lg:w-96 lg:h-96 object-cover rounded-full shadow-hover border-4 border-primary/30"
               />
