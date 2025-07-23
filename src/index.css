@@ -8,22 +8,22 @@
   :root {
     /* Paleta de cores profissional */
     --background: 0 0% 0%;
-    --background-subtle: 120 100% 1%;
+    --background-subtle: 0 0% 2%;
     --foreground: 0 0% 100%;
     
-    --card: 120 100% 1%;
+    --card: 0 0% 1%;
     --card-foreground: 0 0% 100%;
     
-    --popover: 120 100% 1%;
+    --popover: 0 0% 1%;
     --popover-foreground: 0 0% 100%;
     
     --primary: 45 65% 64%;
     --primary-foreground: 0 0% 0%;
     
-    --secondary: 120 100% 1%;
+    --secondary: 0 0% 1%;
     --secondary-foreground: 0 0% 100%;
     
-    --muted: 120 100% 3%;
+    --muted: 0 0% 3%;
     --muted-foreground: 0 0% 70%;
     
     --accent: 45 65% 64%;
@@ -32,16 +32,16 @@
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
     
-    --border: 120 100% 8%;
-    --input: 120 100% 8%;
+    --border: 0 0% 8%;
+    --input: 0 0% 8%;
     --ring: 45 65% 64%;
     
     --radius: 0.75rem;
     
     /* Gradientes profissionais */
-    --gradient-hero: linear-gradient(135deg, hsl(0 0% 0%) 0%, hsl(120 100% 1%) 100%);
-    --gradient-section: linear-gradient(180deg, hsl(120 100% 1%) 0%, hsl(0 0% 0%) 100%);
-    --gradient-card: linear-gradient(135deg, hsl(120 100% 2%) 0%, hsl(120 100% 1%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 0%) 0%, hsl(0 0% 2%) 100%);
+    --gradient-section: linear-gradient(180deg, hsl(0 0% 1%) 0%, hsl(0 0% 0%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 2%) 0%, hsl(0 0% 1%) 100%);
     
     /* Sombras elegantes */
     --shadow-card: 0 10px 30px -15px hsl(45 65% 64% / 0.3);
