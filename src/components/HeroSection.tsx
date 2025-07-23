@@ -23,13 +23,13 @@ export const HeroSection = () => {
           <div className="space-y-8 animate-fade-in">
             <div className="space-y-6">
               <h1 className="text-5xl lg:text-6xl font-serif font-bold text-foreground leading-tight">
-                Pensar com mais clareza, 
-                <span className="text-primary block">sentir com mais consciência,</span>
-                agir com mais propósito
+                <span className="font-bold text-primary">Pensar</span> com mais clareza, 
+                <span className="font-bold text-primary">sentir</span> com mais consciência,
+                <span className="font-bold text-primary block">agir</span> com mais propósito
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed">
-                Atendimento psicológico online com qualidade, sigilo e acolhimento. 
-                Transforme sua vida com o apoio de um profissional qualificado.
+                Psicoterapia online, com eficácia e empatia. 
+                Enfrente emoções angustiantes com apoio especializado.
               </p>
             </div>
             
