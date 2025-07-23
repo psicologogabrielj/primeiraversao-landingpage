@@ -55,11 +55,11 @@ export const HeroSection = () => {
             
             <div className="flex items-center gap-8 pt-8">
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary">500+</div>
+                <div className="text-3xl font-bold text-primary">70+</div>
                 <div className="text-muted-foreground">Pacientes atendidos</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary">5+</div>
+                <div className="text-3xl font-bold text-primary">{new Date().getFullYear() - 2022}+</div>
                 <div className="text-muted-foreground">Anos de experiência</div>
               </div>
               <div className="text-center">
@@ -72,11 +72,10 @@ export const HeroSection = () => {
           {/* Photo */}
           <div className="flex justify-center lg:justify-end">
             <div className="relative">
-              <div className="absolute -inset-4 bg-primary/20 rounded-full blur-xl animate-glow" />
               <img 
                 src="/lovable-uploads/f18bb6da-f51f-4400-9156-6e593a7a4d56.png" 
                 alt="Psicólogo clínico" 
-                className="relative w-80 h-80 lg:w-96 lg:h-96 object-cover rounded-full shadow-hover border-4 border-primary/30"
+                className="w-80 h-80 lg:w-96 lg:h-96 object-cover rounded-full shadow-card border-2 border-primary/20"
               />
             </div>
           </div>
