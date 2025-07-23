@@ -6,12 +6,12 @@ import psychologistPhoto from "@/assets/psychologist-photo.jpg";
 export const HeroSection = () => {
   return (
     <section className="relative min-h-screen bg-hero-gradient flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
+      {/* Background Texture */}
       <div className="absolute inset-0 z-0">
         <img 
-          src={heroImage} 
-          alt="Consultório de psicologia" 
-          className="w-full h-full object-cover opacity-30"
+          src="/lovable-uploads/f622933e-68e9-4178-ae70-eaf3cece9afe.png" 
+          alt="Textura de fundo" 
+          className="w-full h-full object-cover opacity-60"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
       </div>
