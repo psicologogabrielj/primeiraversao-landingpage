@@ -11,17 +11,17 @@ export const OnlineTherapySection = () => {
     {
       icon: Clock,
       title: "Sessões de 50 minutos",
-      description: "Encontros semanais ou quinzenais, de acordo com sua necessidade e disponibilidade. Flexibilidade de horários."
+      description: "Encontros semanais ou quinzenais, de acordo com a etapa em que o seu processo de terapia está."
     },
     {
       icon: Shield,
       title: "Sigilo e Ética Profissional",
-      description: "Todos os atendimentos seguem rigorosamente o código de ética da psicologia, garantindo total confidencialidade."
+      description: "Todos os atendimentos seguem o código de ética estabelecido pelo Conselho Federal de Psicologia (CFP), garantindo sigilo durante os atendimentos."
     },
     {
       icon: CreditCard,
       title: "Formas de Pagamento",
-      description: "Pagamento via PIX, cartão de crédito/débito ou transferência bancária. Valores acessíveis e parcelamento disponível."
+      description: "Pagamento via PIX ou cartão de crédito, via aplicativo InfinitePay. Envio de recibo, seguindo as normas do CFP, através do Receita Saúde."
     }
   ];
 
