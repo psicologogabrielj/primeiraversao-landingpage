@@ -38,7 +38,7 @@ export const HeroSection = () => {
                 variant="hero" 
                 size="xl" 
                 className="flex items-center gap-3 text-black"
-                onClick={() => window.open('https://wa.me/5511999999999', '_blank')}
+                onClick={() => window.open('https://wa.me/5513981664867', '_blank')}
               >
                 <MessageCircle className="h-5 w-5 text-black" />
                 Agendar Consulta

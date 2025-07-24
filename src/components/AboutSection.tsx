@@ -48,7 +48,7 @@ export const AboutSection = () => {
                 
                 <div className="text-center mt-8">
                   <p className="text-sm text-muted-foreground">
-                    CRP: 06/123456 - Registro válido no Conselho Regional de Psicologia
+                    CRP: 06/171722 - Registro válido no Conselho Regional de Psicologia
                   </p>
                 </div>
               </div>

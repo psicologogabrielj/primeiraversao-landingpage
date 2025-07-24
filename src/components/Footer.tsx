@@ -34,7 +34,7 @@ export const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center gap-3 text-muted-foreground">
                 <Shield className="h-5 w-5" />
-                <span>CRP: 06/123456</span>
+                <span>CRP: 06/171722</span>
               </div>
               <p className="text-sm text-muted-foreground">
                 Atendimento psicológico online seguindo rigorosamente o código de ética profissional

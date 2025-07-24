@@ -34,7 +34,7 @@ export const InstagramSection = () => {
             Conteúdos no Instagram
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Acompanhe dicas, reflexões e conteúdos sobre saúde mental no meu perfil
+            Acompanhe meus últimos conteúdos
           </p>
         </div>
         
@@ -70,7 +70,7 @@ export const InstagramSection = () => {
           <Button 
             variant="hero" 
             size="lg"
-            onClick={() => window.open('https://instagram.com/seuperfil', '_blank')}
+            onClick={() => window.open('https://instagram.com/gabrieljpsi', '_blank')}
             className="flex items-center gap-3"
           >
             <Instagram className="h-5 w-5" />
