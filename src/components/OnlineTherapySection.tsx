@@ -85,16 +85,16 @@ export const OnlineTherapySection = () => {
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl font-bold text-primary">2</span>
               </div>
-              <h4 className="text-lg font-semibold text-card-foreground mb-2">Primeira Sessão</h4>
-              <p className="text-muted-foreground">Conhecimento mútuo e definição dos objetivos terapêuticos</p>
+              <h4 className="text-lg font-semibold text-card-foreground mb-2">Primeiro Encontro</h4>
+              <p className="text-muted-foreground">Momento para você trazer o que te motiva a procurar tratamento, tirar suas maiores dúvidas e entender como o processo de psicoterapia pode te ajudar de maneira específica.</p>
             </div>
             
             <div className="text-center">
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl font-bold text-primary">3</span>
               </div>
-              <h4 className="text-lg font-semibold text-card-foreground mb-2">Acompanhamento</h4>
-              <p className="text-muted-foreground">Sessões regulares focadas no seu desenvolvimento pessoal</p>
+              <h4 className="text-lg font-semibold text-card-foreground mb-2">Início das sessões</h4>
+              <p className="text-muted-foreground">Sessões semanais regulares, focadas em um trabalho horizontal e com objetivo de sanar as metas estipuladas em conjunto ao longo do processo de psicoterapia. Seguindo, portanto, até o momento da alta.</p>
             </div>
           </div>
         </div>
