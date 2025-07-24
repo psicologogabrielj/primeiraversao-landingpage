@@ -42,7 +42,7 @@ export const AboutSection = () => {
                 
                 <div className="mt-8 p-6 bg-background-subtle rounded-lg border border-primary/20">
                   <p className="text-center text-muted-foreground italic">
-                    "Acredito que cada pessoa possui a capacidade de crescer e se transformar. Meu papel é oferecer um espaço seguro e acolhedor para que você possa explorar seus sentimentos e desenvolver novas perspectivas sobre a vida."
+                    "Ter autonomia sobre sua saúde mental, não significa deixar de viver experiências sofridas, mas saber que o sofrimento não é o fim do mundo. Podemos ir juntos nesse caminho."
                   </p>
                 </div>
                 
