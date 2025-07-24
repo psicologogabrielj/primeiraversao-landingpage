@@ -72,29 +72,35 @@ export const OnlineTherapySection = () => {
             Processo de Agendamento
           </h3>
           
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-primary">1</span>
+          <div className="space-y-8">
+            {/* Item 1 - Topo da pirâmide */}
+            <div className="flex justify-center">
+              <div className="text-center max-w-sm">
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold text-primary">1</span>
+                </div>
+                <h4 className="text-lg font-semibold text-card-foreground mb-2">Entre em Contato</h4>
+                <p className="text-muted-foreground">Envie uma mensagem via WhatsApp para agendar sua primeira consulta</p>
               </div>
-              <h4 className="text-lg font-semibold text-card-foreground mb-2">Entre em Contato</h4>
-              <p className="text-muted-foreground">Envie uma mensagem via WhatsApp para agendar sua primeira consulta</p>
             </div>
             
-            <div className="text-center">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-primary">2</span>
+            {/* Itens 2 e 3 - Base da pirâmide */}
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold text-primary">2</span>
+                </div>
+                <h4 className="text-lg font-semibold text-card-foreground mb-2">Primeiro Encontro</h4>
+                <p className="text-muted-foreground">Momento para você trazer o que te motiva a procurar tratamento, tirar suas maiores dúvidas e entender como o processo de psicoterapia pode te ajudar de maneira específica.</p>
               </div>
-              <h4 className="text-lg font-semibold text-card-foreground mb-2">Primeiro Encontro</h4>
-              <p className="text-muted-foreground">Momento para você trazer o que te motiva a procurar tratamento, tirar suas maiores dúvidas e entender como o processo de psicoterapia pode te ajudar de maneira específica.</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-primary">3</span>
+              
+              <div className="text-center">
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold text-primary">3</span>
+                </div>
+                <h4 className="text-lg font-semibold text-card-foreground mb-2">Início das sessões</h4>
+                <p className="text-muted-foreground">Sessões semanais regulares, focadas em um trabalho horizontal e com objetivo de sanar as metas estipuladas em conjunto ao longo do processo de psicoterapia. Seguindo, portanto, até o momento da alta.</p>
               </div>
-              <h4 className="text-lg font-semibold text-card-foreground mb-2">Início das sessões</h4>
-              <p className="text-muted-foreground">Sessões semanais regulares, focadas em um trabalho horizontal e com objetivo de sanar as metas estipuladas em conjunto ao longo do processo de psicoterapia. Seguindo, portanto, até o momento da alta.</p>
             </div>
           </div>
         </div>
