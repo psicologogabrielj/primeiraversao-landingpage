@@ -14,7 +14,7 @@ export const AboutSection = () => {
             <div className="prose prose-lg max-w-none">
               <div className="space-y-6 text-card-foreground">
                 <p className="text-lg leading-relaxed">
-                  <strong className="text-primary">Bem-vindo(a)!</strong> Me chamo Gabriel. Sou psicólogo clínico, com mais de 3 anos de atuação, com experiência em demandas variadas, e dedicado a ajudar pessoas a ganharem real independência sobre sua saúde mental.
+                  <strong className="text-primary">Bem-vindo(a)!</strong> Me chamo Gabriel. Sou psicólogo clínico, com 3 anos de atuação, com experiência em demandas variadas, e dedicado a ajudar pessoas a ganharem real independência sobre sua saúde mental.
                 </p>
                 
                 <div className="grid md:grid-cols-2 gap-8 mt-8">
