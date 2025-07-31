@@ -72,56 +72,51 @@ export const OnlineTherapySection = () => {
             Processo de Agendamento
           </h3>
           
-          <div className="relative space-y-12">
+          <div className="relative space-y-16">
             {/* Item 1 - Topo da pirâmide */}
             <div className="flex justify-center">
               <div className="text-center max-w-sm relative">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-primary/30 relative z-10 bg-card">
-                  <span className="text-2xl font-bold text-primary">1</span>
+                <div className="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4 border-3 border-primary relative z-10 bg-card shadow-lg">
+                  <span className="text-3xl font-bold text-primary">1</span>
                 </div>
-                <h4 className="text-lg font-semibold text-card-foreground mb-2">Entre em Contato</h4>
+                <h4 className="text-xl font-semibold text-card-foreground mb-2">Entre em Contato</h4>
                 <p className="text-muted-foreground">Envie uma mensagem via WhatsApp para agendar sua primeira consulta</p>
                 
-                {/* Linha conectora para baixo */}
-                <div className="absolute top-16 left-1/2 w-0.5 h-12 bg-primary/30 transform -translate-x-0.5"></div>
+                {/* Seta para baixo */}
+                <div className="absolute top-24 left-1/2 transform -translate-x-1/2">
+                  <div className="w-0.5 h-16 bg-primary/50"></div>
+                  <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-8 border-l-transparent border-r-transparent border-t-primary/50"></div>
+                </div>
               </div>
             </div>
             
             {/* Item 2 - Meio da pirâmide */}
             <div className="flex justify-center">
               <div className="text-center max-w-sm relative">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-primary/30 relative z-10 bg-card">
-                  <span className="text-2xl font-bold text-primary">2</span>
+                <div className="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4 border-3 border-primary relative z-10 bg-card shadow-lg">
+                  <span className="text-3xl font-bold text-primary">2</span>
                 </div>
-                <h4 className="text-lg font-semibold text-card-foreground mb-2">Primeiro Encontro</h4>
+                <h4 className="text-xl font-semibold text-card-foreground mb-2">Primeiro Encontro</h4>
                 <p className="text-muted-foreground">Momento para você trazer o que te motiva a procurar tratamento, tirar suas maiores dúvidas e entender como o processo de psicoterapia pode te ajudar de maneira específica.</p>
                 
-                {/* Linhas conectoras diagonais */}
-                <div className="absolute top-16 left-1/2 w-32 h-0.5 bg-primary/30 transform -translate-x-0 rotate-45 origin-left"></div>
-                <div className="absolute top-16 left-1/2 w-32 h-0.5 bg-primary/30 transform -translate-x-full -rotate-45 origin-right"></div>
+                {/* Seta para baixo */}
+                <div className="absolute top-24 left-1/2 transform -translate-x-1/2">
+                  <div className="w-0.5 h-16 bg-primary/50"></div>
+                  <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-8 border-l-transparent border-r-transparent border-t-primary/50"></div>
+                </div>
               </div>
             </div>
             
             {/* Item 3 - Base da pirâmide */}
             <div className="flex justify-center">
-              <div className="grid grid-cols-2 gap-32 max-w-2xl">
-                <div className="text-center relative">
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-primary/30 relative z-10 bg-card">
-                    <span className="text-2xl font-bold text-primary">3</span>
-                  </div>
-                  <h4 className="text-lg font-semibold text-card-foreground mb-2">Início das sessões</h4>
-                  <p className="text-muted-foreground">Sessões semanais regulares, focadas em um trabalho horizontal e com objetivo de sanar as metas estipuladas em conjunto ao longo do processo de psicoterapia. Seguindo, portanto, até o momento da alta.</p>
+              <div className="text-center max-w-sm relative">
+                <div className="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4 border-3 border-primary relative z-10 bg-card shadow-lg">
+                  <span className="text-3xl font-bold text-primary">3</span>
                 </div>
-                
-                <div className="text-center relative opacity-0 pointer-events-none">
-                  <div className="w-16 h-16 bg-transparent rounded-full flex items-center justify-center mx-auto mb-4">
-                  </div>
-                </div>
+                <h4 className="text-xl font-semibold text-card-foreground mb-2">Início das sessões</h4>
+                <p className="text-muted-foreground">Sessões semanais regulares, focadas em um trabalho horizontal e com objetivo de sanar as metas estipuladas em conjunto ao longo do processo de psicoterapia. Seguindo, portanto, até o momento da alta.</p>
               </div>
             </div>
-            
-            {/* Linha de base da pirâmide */}
-            <div className="absolute bottom-20 left-1/2 w-64 h-0.5 bg-primary/30 transform -translate-x-1/2"></div>
           </div>
         </div>
       </div>
