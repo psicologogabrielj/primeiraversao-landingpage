@@ -66,47 +66,35 @@ export const OnlineTherapySection = () => {
             Processo de Agendamento
           </h3>
           
-          <div className="space-y-8">
-            {/* Item 1 - Topo da pirâmide */}
-            <div className="flex justify-center">
-              <div className="text-center max-w-md relative">
-                <div className="w-16 h-16 bg-primary/15 rounded-full flex items-center justify-center mx-auto mb-3 border-2 border-primary/40 relative z-10 bg-card shadow-md">
-                  <span className="text-2xl font-bold text-primary">1</span>
-                </div>
+          <div className="space-y-8 max-w-2xl">
+            {/* Item 1 */}
+            <div className="flex items-start gap-4">
+              <div className="w-16 h-16 bg-primary/15 rounded-full flex items-center justify-center border-2 border-primary/40 bg-card shadow-md flex-shrink-0">
+                <span className="text-2xl font-bold text-primary">1</span>
+              </div>
+              <div>
                 <h4 className="text-lg font-semibold text-card-foreground mb-2">Entre em Contato</h4>
                 <p className="text-sm text-muted-foreground leading-relaxed">Envie uma mensagem via WhatsApp para agendar sua primeira consulta</p>
-                
-                {/* Seta para baixo */}
-                <div className="absolute top-20 left-1/2 transform -translate-x-1/2">
-                  <div className="w-0.5 h-8 bg-primary/40"></div>
-                  <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-3 border-r-3 border-t-6 border-l-transparent border-r-transparent border-t-primary/40"></div>
-                </div>
               </div>
             </div>
             
-            {/* Item 2 - Meio da pirâmide */}
-            <div className="flex justify-center">
-              <div className="text-center max-w-md relative">
-                <div className="w-16 h-16 bg-primary/15 rounded-full flex items-center justify-center mx-auto mb-3 border-2 border-primary/40 relative z-10 bg-card shadow-md">
-                  <span className="text-2xl font-bold text-primary">2</span>
-                </div>
+            {/* Item 2 */}
+            <div className="flex items-start gap-4">
+              <div className="w-16 h-16 bg-primary/15 rounded-full flex items-center justify-center border-2 border-primary/40 bg-card shadow-md flex-shrink-0">
+                <span className="text-2xl font-bold text-primary">2</span>
+              </div>
+              <div>
                 <h4 className="text-lg font-semibold text-card-foreground mb-2">Primeiro Encontro</h4>
                 <p className="text-sm text-muted-foreground leading-relaxed">Momento para você trazer o que te motiva a procurar tratamento, tirar suas maiores dúvidas e entender como o processo de psicoterapia pode te ajudar de maneira específica.</p>
-                
-                {/* Seta para baixo */}
-                <div className="absolute top-20 left-1/2 transform -translate-x-1/2">
-                  <div className="w-0.5 h-8 bg-primary/40"></div>
-                  <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-3 border-r-3 border-t-6 border-l-transparent border-r-transparent border-t-primary/40"></div>
-                </div>
               </div>
             </div>
             
-            {/* Item 3 - Base da pirâmide */}
-            <div className="flex justify-center">
-              <div className="text-center max-w-md relative">
-                <div className="w-16 h-16 bg-primary/15 rounded-full flex items-center justify-center mx-auto mb-3 border-2 border-primary/40 relative z-10 bg-card shadow-md">
-                  <span className="text-2xl font-bold text-primary">3</span>
-                </div>
+            {/* Item 3 */}
+            <div className="flex items-start gap-4">
+              <div className="w-16 h-16 bg-primary/15 rounded-full flex items-center justify-center border-2 border-primary/40 bg-card shadow-md flex-shrink-0">
+                <span className="text-2xl font-bold text-primary">3</span>
+              </div>
+              <div>
                 <h4 className="text-lg font-semibold text-card-foreground mb-2">Início das sessões</h4>
                 <p className="text-sm text-muted-foreground leading-relaxed">Sessões semanais regulares, focadas em um trabalho horizontal e com objetivo de sanar as metas estipuladas em conjunto ao longo do processo de psicoterapia. Seguindo, portanto, até o momento da alta.</p>
               </div>
