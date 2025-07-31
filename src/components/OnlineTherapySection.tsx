@@ -58,12 +58,6 @@ export const OnlineTherapySection = () => {
               alt="Como funciona a terapia online" 
               className="w-full rounded-2xl shadow-hover"
             />
-            <div className="absolute -bottom-6 -right-6 bg-primary text-primary-foreground rounded-lg p-4 shadow-lg">
-              <div className="text-center">
-                <div className="text-2xl font-bold">R$ 120</div>
-                <div className="text-sm opacity-90">por sessão</div>
-              </div>
-            </div>
           </div>
         </div>
         
