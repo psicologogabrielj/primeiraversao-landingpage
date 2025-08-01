@@ -8,21 +8,18 @@ export const InstagramSection = () => {
   const posts = [
     {
       image: instagramPost1,
-      caption: "Dica importante sobre saúde mental e autocuidado",
-      likes: 245,
-      comments: 18
+      caption: "Conteúdo sobre psicologia e bem-estar",
+      url: "https://www.instagram.com/gabrieljpsi/reel/DMuxI14O0ns/"
     },
     {
       image: instagramPost2,
-      caption: "Como funciona a terapia online - benefícios e vantagens",
-      likes: 189,
-      comments: 12
+      caption: "Reflexões e dicas de saúde mental",
+      url: "https://www.instagram.com/gabrieljpsi/reel/DKZZOVYOw-Z/"
     },
     {
       image: instagramPost3,
-      caption: "Reflexões sobre bem-estar emocional e crescimento pessoal",
-      likes: 312,
-      comments: 24
+      caption: "Insights sobre terapia e crescimento pessoal",
+      url: "https://www.instagram.com/p/DMFk7-DOEVU/"
     }
   ];
 
@@ -40,7 +37,7 @@ export const InstagramSection = () => {
         
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           {posts.map((post, index) => (
-            <div key={index} className="bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-hover transition-all duration-300 group">
+            <div key={index} className="bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-hover transition-all duration-300 group cursor-pointer" onClick={() => window.open(post.url, '_blank')}>
               <div className="relative overflow-hidden">
                 <img 
                   src={post.image} 
@@ -57,9 +54,9 @@ export const InstagramSection = () => {
               
               <div className="p-6">
                 <p className="text-card-foreground mb-4 line-clamp-2">{post.caption}</p>
-                <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                  <span>{post.likes} likes</span>
-                  <span>{post.comments} comentários</span>
+                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <Instagram className="h-4 w-4" />
+                  <span>@gabrieljpsi</span>
                 </div>
               </div>
             </div>
