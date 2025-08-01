@@ -1,23 +1,20 @@
 import { Instagram, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import instagramPost1 from "@/assets/instagram-post-1.jpg";
-import instagramPost2 from "@/assets/instagram-post-2.jpg";
-import instagramPost3 from "@/assets/instagram-post-3.jpg";
 
 export const InstagramSection = () => {
   const posts = [
     {
-      image: instagramPost1,
+      image: "/tmp/fetched-websites/screenshot-2025-01-17-14-26-05-618.png",
       caption: "Conteúdo sobre psicologia e bem-estar",
       url: "https://www.instagram.com/gabrieljpsi/reel/DMuxI14O0ns/"
     },
     {
-      image: instagramPost2,
+      image: "/tmp/fetched-websites/screenshot-2025-01-17-14-26-12-015.png",
       caption: "Reflexões e dicas de saúde mental",
       url: "https://www.instagram.com/gabrieljpsi/reel/DKZZOVYOw-Z/"
     },
     {
-      image: instagramPost3,
+      image: "/tmp/fetched-websites/screenshot-2025-01-17-14-26-12-529.png",
       caption: "Insights sobre terapia e crescimento pessoal",
       url: "https://www.instagram.com/p/DMFk7-DOEVU/"
     }
