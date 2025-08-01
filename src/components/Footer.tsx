@@ -13,11 +13,11 @@ export const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center gap-3 text-muted-foreground">
                 <Phone className="h-5 w-5" />
-                <span>(11) 99999-9999</span>
+                <span>(13) 98166-4867</span>
               </div>
               <div className="flex items-center gap-3 text-muted-foreground">
                 <Mail className="h-5 w-5" />
-                <span>contato@psicologo.com</span>
+                <span>psicologo.gabrielj@gmail.com</span>
               </div>
               <div className="flex items-center gap-3 text-muted-foreground">
                 <MapPin className="h-5 w-5" />
@@ -48,9 +48,10 @@ export const Footer = () => {
               Horários de Atendimento
             </h3>
             <div className="space-y-2 text-muted-foreground">
-              <div>Segunda à Sexta: 08h - 19h</div>
-              <div>Sábado: 08h - 12h</div>
+              <div>Segunda à Sexta: 10h - 13h e 14h - 22:30h</div>
+              <div>Sábado: 13h - 17h</div>
               <div>Domingo: Fechado</div>
+              <div className="text-sm italic mt-2">Atendimento apenas com hora marcada</div>
             </div>
           </div>
         </div>
