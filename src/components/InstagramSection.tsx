@@ -1,25 +1,7 @@
-import { Instagram, ExternalLink } from "lucide-react";
+import { Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const InstagramSection = () => {
-  const posts = [
-    {
-      image: "/tmp/fetched-websites/screenshot-2025-01-17-14-26-05-618.png",
-      caption: "Conteúdo sobre psicologia e bem-estar",
-      url: "https://www.instagram.com/gabrieljpsi/reel/DMuxI14O0ns/"
-    },
-    {
-      image: "/tmp/fetched-websites/screenshot-2025-01-17-14-26-12-015.png",
-      caption: "Reflexões e dicas de saúde mental",
-      url: "https://www.instagram.com/gabrieljpsi/reel/DKZZOVYOw-Z/"
-    },
-    {
-      image: "/tmp/fetched-websites/screenshot-2025-01-17-14-26-12-529.png",
-      caption: "Insights sobre terapia e crescimento pessoal",
-      url: "https://www.instagram.com/p/DMFk7-DOEVU/"
-    }
-  ];
-
   return (
     <section className="py-20 bg-background-subtle">
       <div className="container mx-auto px-4">
@@ -28,48 +10,35 @@ export const InstagramSection = () => {
             Conteúdos no Instagram
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Acompanhe meus últimos conteúdos
+            Acompanhe meus conteúdos sobre psicologia e bem-estar
           </p>
         </div>
         
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
-          {posts.map((post, index) => (
-            <div key={index} className="bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-hover transition-all duration-300 group cursor-pointer" onClick={() => window.open(post.url, '_blank')}>
-              <div className="relative overflow-hidden">
-                <img 
-                  src={post.image} 
-                  alt={`Post do Instagram ${index + 1}`}
-                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <Button variant="hero" size="sm" className="opacity-90">
-                    <ExternalLink className="h-4 w-4 mr-2" />
-                    Ver post
-                  </Button>
-                </div>
-              </div>
-              
-              <div className="p-6">
-                <p className="text-card-foreground mb-4 line-clamp-2">{post.caption}</p>
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <Instagram className="h-4 w-4" />
-                  <span>@gabrieljpsi</span>
-                </div>
-              </div>
+        <div className="max-w-2xl mx-auto text-center">
+          <div className="bg-card rounded-2xl p-8 shadow-card mb-8">
+            <div className="mb-6">
+              <img 
+                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=300&fit=crop&crop=center" 
+                alt="Instagram @gabrieljpsi"
+                className="w-full max-w-md mx-auto rounded-lg shadow-lg"
+              />
             </div>
-          ))}
-        </div>
-        
-        <div className="text-center">
-          <Button 
-            variant="hero" 
-            size="lg"
-            onClick={() => window.open('https://instagram.com/gabrieljpsi', '_blank')}
-            className="flex items-center gap-3"
-          >
-            <Instagram className="h-5 w-5" />
-            Seguir no Instagram
-          </Button>
+            <h3 className="text-2xl font-serif font-bold text-card-foreground mb-4">
+              @gabrieljpsi
+            </h3>
+            <p className="text-muted-foreground mb-6">
+              Conteúdos sobre psicologia, saúde mental e bem-estar emocional
+            </p>
+            <Button 
+              variant="hero" 
+              size="lg"
+              onClick={() => window.open('https://www.instagram.com/gabrieljpsi/', '_blank')}
+              className="flex items-center gap-3"
+            >
+              <Instagram className="h-5 w-5" />
+              Seguir no Instagram
+            </Button>
+          </div>
         </div>
       </div>
     </section>
