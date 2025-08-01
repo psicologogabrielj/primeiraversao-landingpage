@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { MessageCircle } from "lucide-react";
+import { MessageCircle, Instagram } from "lucide-react";
 import heroImage from "@/assets/hero-psychology.jpg";
 import psychologistPhoto from "@/assets/psychologist-photo.jpg";
 
@@ -47,9 +47,11 @@ export const HeroSection = () => {
               <Button 
                 variant="elegant" 
                 size="xl"
-                onClick={() => document.getElementById('sobre')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => window.open('https://www.instagram.com/gabrieljpsi/', '_blank')}
+                className="flex items-center gap-3"
               >
-                Conheça mais
+                <Instagram className="h-5 w-5" />
+                Seguir no Instagram
               </Button>
             </div>
             
