@@ -58,9 +58,7 @@ export const Footer = () => {
         
         <div className="border-t border-border mt-8 pt-8 text-center">
           <div className="flex items-center justify-center gap-2 text-muted-foreground">
-            <span>Feito com</span>
-            <Heart className="h-4 w-4 text-primary fill-primary" />
-            <span>para cuidar da sua saúde mental</span>
+            <span>Enfrentar o desconforto é o que gera a mudança</span>
           </div>
           <p className="text-sm text-muted-foreground mt-2">
             © 2024 Psicologia Clínica Online. Todos os direitos reservados.
