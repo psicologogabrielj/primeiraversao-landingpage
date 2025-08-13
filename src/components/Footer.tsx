@@ -60,9 +60,6 @@ export const Footer = () => {
           <div className="flex items-center justify-center gap-2 text-muted-foreground">
             <span>Enfrentar o desconforto é o que gera a mudança</span>
           </div>
-          <p className="text-sm text-muted-foreground mt-2">
-            © 2024 Psicologia Clínica Online. Todos os direitos reservados.
-          </p>
         </div>
       </div>
     </footer>
