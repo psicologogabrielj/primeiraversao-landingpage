@@ -54,6 +54,10 @@ export default {
 				card: {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
+				},
+				testimonial: {
+					DEFAULT: 'hsl(var(--testimonial))',
+					foreground: 'hsl(var(--testimonial-foreground))'
 				}
 			},
 			fontFamily: {
