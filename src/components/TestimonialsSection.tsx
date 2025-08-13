@@ -33,9 +33,9 @@ export const TestimonialsSection = () => {
           </h2>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-testimonial rounded-2xl p-6 shadow-card hover:shadow-hover transition-all duration-300 group">
+            <div key={index} className="bg-testimonial rounded-2xl p-6 shadow-card hover:shadow-hover transition-all duration-300 group break-inside-avoid mb-8">
               <div className="mb-4">
                 <Quote className="h-8 w-8 text-primary opacity-60 mb-4" />
                 <p className="text-testimonial-foreground leading-relaxed italic">
