@@ -51,7 +51,7 @@ export const HeroSection = () => {
                 className="flex items-center gap-3"
               >
                 <Instagram className="h-5 w-5" />
-                Seguir no Instagram
+                Meu Instagram
               </Button>
             </div>
             
