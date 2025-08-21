@@ -24,7 +24,7 @@ export const HeroSection = () => {
             <div className="space-y-6">
               <h1 className="text-5xl lg:text-6xl font-serif font-bold text-foreground leading-tight">
                 <span className="font-bold text-primary">Pensar</span> com mais clareza, 
-                <span className="font-bold text-primary">sentir</span> com mais consciência, 
+                {" "}<span className="font-bold text-primary">sentir</span> com mais consciência, 
                 <span className="font-bold text-primary block">agir</span> com mais propósito
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed">
