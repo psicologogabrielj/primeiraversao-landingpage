@@ -1,6 +1,14 @@
 import { Star, Quote } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export const TestimonialsSection = () => {
+  const handleWhatsAppClick = () => {
+    const phoneNumber = "5513981664867";
+    const message = "Olá! Gostaria de começar meu tratamento psicológico online.";
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
   const testimonials = [
     {
       text: "Acho que o melhor ganho que tive mesmo com pouco tempo de tratamento foi organizar melhor meus pensamentos. E isso acaba me ajudando no dia a dia desde as coisas mías básicas até as mais complexas",
@@ -50,6 +58,16 @@ export const TestimonialsSection = () => {
           ))}
         </div>
         
+        <div className="text-center mt-16">
+          <Button 
+            variant="hero"
+            size="xl"
+            onClick={handleWhatsAppClick}
+            className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-glow hover:shadow-hover"
+          >
+            Começar Tratamento
+          </Button>
+        </div>
       </div>
     </section>
   );
