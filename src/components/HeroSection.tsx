@@ -41,7 +41,7 @@ export const HeroSection = () => {
                 onClick={() => window.open('https://wa.me/5513981664867', '_blank')}
               >
                 <MessageCircle className="h-5 w-5 text-black" />
-                Agendar Consulta
+                Fale comigo
               </Button>
               
               <Button 
