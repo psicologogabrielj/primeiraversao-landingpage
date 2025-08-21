@@ -3,10 +3,10 @@ import { Button } from "@/components/ui/button";
 
 export const WhatsAppButton = () => {
   const handleWhatsAppClick = () => {
-    const phoneNumber = "5513981664867"; // Substitua pelo número real
+    const phoneNumber = "5513981664867";
     const message = "Olá! Gostaria de agendar uma consulta psicológica online.";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+    window.location.href = whatsappUrl;
   };
 
   return (

@@ -6,7 +6,7 @@ export const TestimonialsSection = () => {
     const phoneNumber = "5513981664867";
     const message = "Olá! Gostaria de começar meu tratamento psicológico online.";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+    window.location.href = whatsappUrl;
   };
 
   const testimonials = [

@@ -38,7 +38,10 @@ export const HeroSection = () => {
                 variant="hero" 
                 size="xl" 
                 className="flex items-center gap-3 text-black"
-                onClick={() => window.open('https://wa.me/5513981664867', '_blank')}
+                onClick={() => {
+                  const whatsappUrl = 'https://wa.me/5513981664867?text=' + encodeURIComponent('Olá! Gostaria de falar com você.');
+                  window.location.href = whatsappUrl;
+                }}
               >
                 <MessageCircle className="h-5 w-5 text-black" />
                 Fale comigo
