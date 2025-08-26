@@ -5,7 +5,7 @@ export const AboutSection = () => {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-serif font-bold text-foreground mb-6">
-              Sobre Mim
+              Sobre o Psicólogo Gabriel
             </h2>
             <div className="w-20 h-1 bg-primary mx-auto rounded-full" />
           </div>

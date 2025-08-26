@@ -28,8 +28,8 @@ export const HeroSection = () => {
                 <span className="font-bold text-primary block">agir</span> com mais propósito
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed">
-                Psicoterapia online, com eficácia e empatia. 
-                Enfrente emoções angustiantes com apoio especializado.
+                <strong>Psicólogo clínico online especializado em TCC</strong> para ansiedade, depressão, TDAH e desenvolvimento pessoal. 
+                Transforme suas emoções com terapia baseada em evidências.
               </p>
             </div>
             
@@ -79,7 +79,7 @@ export const HeroSection = () => {
             <div className="relative">
               <img 
                 src="/lovable-uploads/f18bb6da-f51f-4400-9156-6e593a7a4d56.png" 
-                alt="Psicólogo clínico" 
+                alt="Gabriel - Psicólogo clínico especialista em Terapia Cognitivo-Comportamental para ansiedade, depressão e TDAH" 
                 className="w-80 h-80 lg:w-96 lg:h-96 object-cover rounded-full shadow-card border-2 border-primary/20"
               />
             </div>
