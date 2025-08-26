@@ -28,8 +28,8 @@ export const HeroSection = () => {
                 <span className="font-bold text-primary block">agir</span> com mais propósito
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed">
-                <strong>Psicólogo clínico online especializado em TCC</strong> para ansiedade, depressão, TDAH e desenvolvimento pessoal. 
-                Transforme suas emoções com terapia baseada em evidências.
+                Psicoterapia online, com eficácia e empatia. 
+                Enfrente emoções angustiantes com apoio especializado.
               </p>
             </div>
             
