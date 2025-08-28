@@ -54,10 +54,15 @@ export const OnlineTherapySection = () => {
           
           <div className="relative">
             <img 
-              src={onlineTherapyImage} 
-              alt="Como funciona a terapia online" 
+              src="/lovable-uploads/81c5d238-1e9b-4c6f-9ec5-a887d90b9ce8.png" 
+              alt="Ambiente de trabalho para terapia online - laptop e xícara em mesa de madeira" 
               className="w-full rounded-2xl shadow-hover"
+              style={{
+                filter: 'sepia(10%) saturate(120%) hue-rotate(340deg) brightness(95%) contrast(105%)'
+              }}
             />
+            {/* Overlay sutil para harmonizar com a paleta */}
+            <div className="absolute inset-0 bg-primary/5 rounded-2xl mix-blend-overlay"></div>
           </div>
         </div>
         
