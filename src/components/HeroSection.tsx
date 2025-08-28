@@ -69,7 +69,7 @@ export const HeroSection = () => {
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-primary">100%</div>
-                <div className="text-muted-foreground">Online</div>
+                <div className="text-muted-foreground">Online no Brasil</div>
               </div>
             </div>
           </div>
