@@ -13,6 +13,10 @@ const FAQSection = () => {
     {
       question: "Como sei que o tratamento está funcionando?",
       answer: "Os objetivos terapêuticos, de curto e longo prazo, ajudam a ter uma melhor compreensão do quanto as habilidades desenvolvidas estão permitindo sua evolução para melhora. Além disso, como medida objetiva, é feito ao longo do tratamento um monitoramento do progresso via aplicação de escalas e automonitoramento de comportamentos-alvo relevantes ao tratamento."
+    },
+    {
+      question: "Sou obrigado a também passar com psiquiatra?",
+      answer: "Não existe obrigatoriedade, porém há quadros em que a consulta com o psiquiatra pode sim ser recomendada para melhorar a evolução do caso, facilitando reduzir o sofrimento psicológico. Porém caso o paciente não queira fazer uso de medicações, é de sua livre escolha deixar de passar por esse tipo de atendimento com o médico psiquiatra."
     }
   ];
 
