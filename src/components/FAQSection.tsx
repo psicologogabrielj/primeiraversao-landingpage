@@ -17,6 +17,10 @@ const FAQSection = () => {
     {
       question: "Sou obrigado a também passar com psiquiatra?",
       answer: "Não existe obrigatoriedade, porém há quadros em que a consulta com o psiquiatra pode sim ser recomendada para melhorar a evolução do caso, facilitando reduzir o sofrimento psicológico. Porém caso o paciente não queira fazer uso de medicações, é de sua livre escolha deixar de passar por esse tipo de atendimento com o médico psiquiatra."
+    },
+    {
+      question: "Preciso fazer terapia para sempre?",
+      answer: "Não, pois o processo é pensado baseado em objetivos terapêuticos que auxiliam a direcionar o tratamento, e planejar as intervenções. Assim, de forma colaborativa com cada paciente, as sessões passam de semanais, para quinzenais e, finalmente, chega-se à alta da psicoterapia."
     }
   ];
 
