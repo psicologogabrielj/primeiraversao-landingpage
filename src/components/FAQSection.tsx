@@ -21,6 +21,10 @@ const FAQSection = () => {
     {
       question: "Preciso fazer terapia para sempre?",
       answer: "Não, pois o processo é pensado baseado em objetivos terapêuticos que auxiliam a direcionar o tratamento, e planejar as intervenções. Assim, de forma colaborativa com cada paciente, as sessões passam de semanais, para quinzenais e, finalmente, chega-se à alta da psicoterapia."
+    },
+    {
+      question: "Qual o preço das sessões?",
+      answer: "O Conselho Federal de Psicologia não permite que o preço seja usado como forma de divulgação. Por conta disso, não é divulgado o preço no site. Porém, ao entrar em contato diretamente pelo whatsapp, é possível conseguir mais informações sobre preço do plano mensal de atendimento, formas de pagamento, envio de recibo e como funciona o processo de alta da psicoterapia."
     }
   ];
 
