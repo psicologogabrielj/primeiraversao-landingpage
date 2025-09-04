@@ -9,6 +9,10 @@ const FAQSection = () => {
     {
       question: "Preciso levar alguma coisa para as consultas?",
       answer: "Não é obrigatório levar nada para o atendimento. Mas, pensando em melhorar a experiência da sessão, aproveitando o conforto da sua casa e mantendo o sigilo do atendimento, algumas ideias são: trazer um bloco de anotações para insights, trazer uma bebida como um chá ou chocolate quente, manter o ambiente climatizado, estar em um local confortável e privativo, ter um lenço para se uma emoção mais intensa surgir. Evite ter no ambiente estímulos que possam te distrair, como músicas agitadas ou avisos de notificação."
+    },
+    {
+      question: "Como sei que o tratamento está funcionando?",
+      answer: "Os objetivos terapêuticos, de curto e longo prazo, ajudam a ter uma melhor compreensão do quanto as habilidades desenvolvidas estão permitindo sua evolução para melhora. Além disso, como medida objetiva, é feito ao longo do tratamento um monitoramento do progresso via aplicação de escalas e automonitoramento de comportamentos-alvo relevantes ao tratamento."
     }
   ];
 
