@@ -44,12 +44,27 @@ export function HeroSection() {
                 }}
               >
                 <MessageCircle className="h-5 w-5 text-black" />
-                Fale comigo
+                Começar Tratamento
               </Button>
 
               <Button
-                variant="elegant"
-                size="xl"
+                variant="default"
+                size="lg"
+                onClick={() => {
+                  const whatsappUrl = `https://wa.me/5513981664867?text=${encodeURIComponent(
+                    "Olá! Gostaria de agendar uma consulta."
+                  )}`;
+                  window.location.href = whatsappUrl;
+                }}
+                className="flex items-center gap-3 bg-green-500 hover:bg-green-600 text-white"
+              >
+                <MessageCircle className="h-5 w-5" />
+                Agendar Consulta
+              </Button>
+
+              <Button
+                variant="default"
+                size="lg"
                 onClick={() =>
                   window.open(
                     "https://www.instagram.com/gabrieljpsi/",
