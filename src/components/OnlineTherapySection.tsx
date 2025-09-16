@@ -1,5 +1,5 @@
 import { Clock, Shield, CreditCard, Video } from "lucide-react";
-import onlineTherapyImage from "@/assets/online-therapy-illustration.jpg";
+import onlineTherapyImage from "@/assets/ambient-online-therapy.png";
 
 export const OnlineTherapySection = () => {
   const features = [
@@ -63,7 +63,7 @@ export const OnlineTherapySection = () => {
 
           <div className="relative">
             <img
-              src="/lovable-uploads/81c5d238-1e9b-4c6f-9ec5-a887d90b9ce8.png"
+              src={onlineTherapyImage}
               alt="Ambiente de trabalho para terapia online - laptop e xícara em mesa de madeira"
               className="w-full rounded-2xl shadow-hover"
               style={{
