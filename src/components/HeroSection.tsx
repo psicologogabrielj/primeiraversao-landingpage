@@ -27,7 +27,7 @@ export function HeroSection() {
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed">
                 Psicoterapia online, com eficácia e empatia. Enfrente emoções
-                angustiantes com apoio especializado?
+                angustiantes com apoio especializado.
               </p>
             </div>
 
