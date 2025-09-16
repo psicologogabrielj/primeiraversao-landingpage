@@ -1,5 +1,5 @@
 import { Clock, Shield, CreditCard, Video } from "lucide-react";
-import onlineTherapyImage from "@/assets/ambient-online-therapy.png";
+import onlineTherapyImage from "@/assets/ambiente-atendimento-generico.png";
 
 export const OnlineTherapySection = () => {
   const features = [
@@ -44,8 +44,8 @@ export const OnlineTherapySection = () => {
 
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
           <div className="space-y-8">
-            {features.map((feature, index) => (
-              <div key={index} className="flex gap-4 group">
+            {features.map((feature) => (
+              <div key={feature.title} className="flex gap-4 group">
                 <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                   <feature.icon className="h-6 w-6 text-primary" />
                 </div>
