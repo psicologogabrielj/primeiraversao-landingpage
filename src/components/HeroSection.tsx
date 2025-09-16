@@ -33,21 +33,6 @@ export function HeroSection() {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
-                variant="hero"
-                size="xl"
-                className="flex items-center gap-3 text-black"
-                onClick={() => {
-                  const whatsappUrl = `https://wa.me/5513981664867?text=${encodeURIComponent(
-                    "Olá! Gostaria de falar com você."
-                  )}`;
-                  window.location.href = whatsappUrl;
-                }}
-              >
-                <MessageCircle className="h-5 w-5 text-black" />
-                Começar Tratamento
-              </Button>
-
-              <Button
                 variant="default"
                 size="lg"
                 onClick={() => {
