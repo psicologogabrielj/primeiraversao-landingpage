@@ -15,7 +15,7 @@ const Index = () => {
       <OnlineTherapySection />
       <TestimonialsSection />
       <FAQSection />
-      
+
       <Footer />
       <WhatsAppButton />
     </div>
