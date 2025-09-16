@@ -6,7 +6,11 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/primeiraversao-landingpage/",
+  server: {
+    host: "::",
+    port: 8080,
+  },
+  // base: "/primeiraversao-landingpage/",
   plugins: [
     react(),
     tailwindcss(),
