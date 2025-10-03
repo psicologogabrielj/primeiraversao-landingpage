@@ -25,7 +25,7 @@ export const Footer = () => {
               </div>
             </div>
           </div>
-          
+
           {/* Informações */}
           <div>
             <h3 className="text-xl font-serif font-bold text-card-foreground mb-4">
@@ -37,25 +37,26 @@ export const Footer = () => {
                 <span>CRP: 06/171722</span>
               </div>
               <p className="text-sm text-muted-foreground">
-                Atendimento psicológico online seguindo rigorosamente o código de ética profissional
+                Atendimento psicológico online seguindo rigorosamente o código
+                de ética profissional
               </p>
             </div>
           </div>
-          
+
           {/* Horários */}
           <div>
             <h3 className="text-xl font-serif font-bold text-card-foreground mb-4">
               Horários de Atendimento
             </h3>
             <div className="space-y-2 text-muted-foreground">
-              <div>Segunda à Sexta: 10h - 13h e 14h - 22:30h</div>
-              <div>Sábado: 13h - 17h</div>
-              <div>Domingo: Fechado</div>
-              <div className="text-sm italic mt-2">Atendimento apenas com hora marcada</div>
+              <div>Segunda à Sexta: 10:30h - 13h e 14h - 22:30h</div>
+              <div className="text-sm italic mt-2">
+                Atendimento apenas com hora marcada
+              </div>
             </div>
           </div>
         </div>
-        
+
         <div className="border-t border-border mt-8 pt-8 text-center">
           <div className="flex items-center justify-center gap-2 text-muted-foreground">
             <span>Enfrentar o desconforto é o que gera a mudança</span>
