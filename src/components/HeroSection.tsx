@@ -1,10 +1,37 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle } from "lucide-react";
 import { CiInstagram as Instagram } from "react-icons/ci";
+import { useTrackEvent } from "@/lib/ga";
 
 import psychologistPhoto from "@/assets/f18bb6da-f51f-4400-9156-6e593a7a4d56.png";
 
 export function HeroSection() {
+  const trackEvent = useTrackEvent();
+
+  const handleWhatsAppHover = () => {
+    trackEvent("WhatsApp Button", "Hover", "Hero Section");
+  };
+
+  const handleWhatsAppLeave = () => {
+    trackEvent("WhatsApp Button", "Leave", "Hero Section");
+  };
+
+  const handleWhatsAppClick = () => {
+    trackEvent("WhatsApp Button", "Click", "Hero Section");
+  };
+
+  const handleInstagramHover = () => {
+    trackEvent("Instagram Button", "Hover", "Hero Section");
+  };
+
+  const handleInstagramLeave = () => {
+    trackEvent("Instagram Button", "Leave", "Hero Section");
+  };
+
+  const handleInstagramClick = () => {
+    trackEvent("Instagram Button", "Click", "Hero Section");
+  };
+
   return (
     <section className="relative min-h-screen bg-hero-gradient flex items-center justify-center overflow-hidden">
       {/* Background Texture */}
@@ -32,35 +59,43 @@ export function HeroSection() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button
-                variant="default"
-                size="lg"
-                onClick={() => {
-                  const whatsappUrl = `https://wa.me/5513981664867?text=${encodeURIComponent(
-                    "Olá! Gostaria de agendar uma consulta."
-                  )}`;
-                  window.location.href = whatsappUrl;
-                }}
-                className="flex items-center gap-3 bg-green-500 hover:bg-green-600 text-white"
+              <a
+                href={`https://wa.me/5513981664867?text=${encodeURIComponent(
+                  "Olá! Gostaria de agendar uma consulta."
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                onMouseEnter={handleWhatsAppHover}
+                onMouseLeave={handleWhatsAppLeave}
+                onClick={handleWhatsAppClick}
               >
-                <MessageCircle className="h-5 w-5" />
-                Agendar Consulta
-              </Button>
+                <Button
+                  variant="default"
+                  size="lg"
+                  className="flex items-center gap-3 bg-green-500 hover:bg-green-600 text-white cursor-pointer"
+                >
+                  <MessageCircle className="h-5 w-5" />
+                  Agendar Consulta
+                </Button>
+              </a>
 
-              <Button
-                variant="default"
-                size="lg"
-                onClick={() =>
-                  window.open(
-                    "https://www.instagram.com/gabrieljpsi/",
-                    "_blank"
-                  )
-                }
-                className="flex items-center gap-3"
+              <a
+                href="https://www.instagram.com/gabrieljpsi/"
+                target="_blank"
+                rel="noopener noreferrer"
+                onMouseEnter={handleInstagramHover}
+                onMouseLeave={handleInstagramLeave}
+                onClick={handleInstagramClick}
               >
-                <Instagram className="h-5 w-5" />
-                Meu Instagram
-              </Button>
+                <Button
+                  variant="default"
+                  size="lg"
+                  className="flex items-center gap-3 cursor-pointer"
+                >
+                  <Instagram className="h-5 w-5" />
+                  Meu Instagram
+                </Button>
+              </a>
             </div>
 
             <div className="flex items-center gap-8 pt-8">

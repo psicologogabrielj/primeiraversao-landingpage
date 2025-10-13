@@ -30,7 +30,7 @@ export const OnlineTherapySection = () => {
   ];
 
   return (
-    <section className="py-20 bg-section-gradient">
+    <section id="therapy" className="py-20 bg-section-gradient">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-serif font-bold text-foreground mb-6">

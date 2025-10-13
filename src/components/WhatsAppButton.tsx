@@ -1,27 +1,39 @@
 import { MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-export const WhatsAppButton = () => {
-  const handleWhatsAppClick = () => {
-    const phoneNumber = "5513981664867";
-    const message = "Olá! Gostaria de agendar uma consulta psicológica online.";
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
-      message
-    )}`;
-    window.location.href = whatsappUrl;
-  };
+interface WhatsAppButtonProps {
+  onClick?: () => void;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
+}
 
+export function WhatsAppButton({
+  onClick,
+  onMouseEnter,
+  onMouseLeave,
+}: WhatsAppButtonProps) {
   return (
     <div className="fixed bottom-6 right-6 z-50">
-      <Button
-        variant="default"
-        size="lg"
-        onClick={handleWhatsAppClick}
-        className="rounded-full shadow-2xl hover:shadow-3xl animate-glow bg-green-500 hover:bg-green-600 text-white"
+      <a
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+        onClick={onClick}
+        href={`https://wa.me/5513981664867?text=${encodeURIComponent(
+          "Olá! Gostaria de agendar uma consulta."
+        )}`}
+        target="_blank"
+        rel="noopener noreferrer"
       >
-        <MessageCircle className="h-6 w-6 mr-2" />
-        Agendar Consulta
-      </Button>
+        <Button
+          variant="default"
+          size="lg"
+          onClick={onClick}
+          className="rounded-full shadow-2xl hover:shadow-3xl animate-glow bg-green-500 hover:bg-green-600 text-white"
+        >
+          <MessageCircle className="h-6 w-6 mr-2" />
+          Agendar Consulta
+        </Button>
+      </a>
     </div>
   );
-};
+}

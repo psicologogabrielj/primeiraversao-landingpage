@@ -1,6 +1,17 @@
 import { Heart, Phone, Mail, MapPin, Shield } from "lucide-react";
+import { useTrackEvent } from "@/lib/ga";
 
 export const Footer = () => {
+  const trackEvent = useTrackEvent();
+
+  const handlePhoneClick = () => {
+    trackEvent("Footer", "Click", "Phone Number");
+  };
+
+  const handleEmailClick = () => {
+    trackEvent("Footer", "Click", "Email");
+  };
+
   return (
     <footer className="bg-card border-t border-border">
       <div className="container mx-auto px-4 py-12">
@@ -11,14 +22,22 @@ export const Footer = () => {
               Contato
             </h3>
             <div className="space-y-3">
-              <div className="flex items-center gap-3 text-muted-foreground">
+              <a
+                href="tel:+5513981664867"
+                onClick={handlePhoneClick}
+                className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+              >
                 <Phone className="h-5 w-5" />
                 <span>(13) 98166-4867</span>
-              </div>
-              <div className="flex items-center gap-3 text-muted-foreground">
+              </a>
+              <a
+                href="mailto:psicologo.gabrielj@gmail.com"
+                onClick={handleEmailClick}
+                className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+              >
                 <Mail className="h-5 w-5" />
                 <span>psicologo.gabrielj@gmail.com</span>
-              </div>
+              </a>
               <div className="flex items-center gap-3 text-muted-foreground">
                 <MapPin className="h-5 w-5" />
                 <span>Atendimento Online</span>

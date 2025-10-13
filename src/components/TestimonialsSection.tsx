@@ -1,8 +1,16 @@
 import { Star, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useTrackEvent } from "@/lib/ga";
 
 export const TestimonialsSection = () => {
+  const trackEvent = useTrackEvent();
+
   const handleWhatsAppClick = () => {
+    trackEvent(
+      "WhatsApp Button",
+      "Click",
+      "Testimonials Section - Começar Tratamento"
+    );
     const phoneNumber = "5513981664867";
     const message =
       "Olá! Gostaria de começar meu tratamento psicológico online.";
@@ -36,7 +44,7 @@ export const TestimonialsSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-background">
+    <section id="testimonials" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-serif font-bold text-foreground mb-6">
@@ -67,14 +75,21 @@ export const TestimonialsSection = () => {
         </div>
 
         <div className="text-center mt-16">
-          <Button
-            variant="default"
-            size="lg"
-            onClick={handleWhatsAppClick}
-            className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-glow hover:shadow-hover"
+          <a
+            href={`https://wa.me/5513981664867?text=${encodeURIComponent(
+              "Olá! Gostaria de começar meu tratamento psicológico online."
+            )}`}
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            Começar Tratamento
-          </Button>
+            <Button
+              variant="default"
+              size="lg"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-glow hover:shadow-hover cursor-pointer"
+            >
+              Começar Tratamento
+            </Button>
+          </a>
         </div>
       </div>
     </section>
