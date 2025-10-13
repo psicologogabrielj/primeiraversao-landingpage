@@ -1,0 +1,63 @@
+{
+  "name": "Psicólogo Online Gabriel - Terapia Cognitivo-Comportamental",
+  "short_name": "Psicólogo Gabriel",
+  "description": "Psicólogo clínico Gabriel, CRP 06/171722. Foco em Terapia Cognitivo-Comportamental online para ansiedade, depressão, TDAH, autoestima e conflitos amorosos.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#8B7355",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/placeholder.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/placeholder.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["health", "medical", "lifestyle"],
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "scope": "/",
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "Agendar Consulta",
+      "short_name": "Agendar",
+      "description": "Entre em contato via WhatsApp para agendar sua consulta",
+      "url": "/#therapy",
+      "icons": [
+        {
+          "src": "/placeholder.svg",
+          "sizes": "192x192",
+          "type": "image/svg+xml"
+        }
+      ]
+    },
+    {
+      "name": "Perguntas Frequentes",
+      "short_name": "FAQ",
+      "description": "Veja as perguntas mais frequentes",
+      "url": "/#faq",
+      "icons": [
+        {
+          "src": "/placeholder.svg",
+          "sizes": "192x192",
+          "type": "image/svg+xml"
+        }
+      ]
+    }
+  ]
+}

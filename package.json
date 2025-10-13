@@ -8,7 +8,8 @@
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "generate:sitemap": "node scripts/generate-sitemap.js"
   },
   "dependencies": {
     "@hookform/resolvers": "5.2.2",
@@ -54,6 +55,7 @@
     "react-day-picker": "9.11.1",
     "react-dom": "19.2.0",
     "react-ga4": "2.1.0",
+    "react-helmet": "6.1.0",
     "react-hook-form": "7.65.0",
     "react-icons": "5.5.0",
     "react-resizable-panels": "3.0.6",

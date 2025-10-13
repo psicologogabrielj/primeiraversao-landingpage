@@ -1,0 +1,14 @@
+# Security Contact Information
+# Para relatar vulnerabilidades de segurança
+
+Contact: https://wa.me/5513981664867
+Preferred-Languages: pt-BR, en
+Canonical: https://gabrieljesuspsicologo.com.br/.well-known/security.txt
+
+# Política
+Policy: https://gabrieljesuspsicologo.com.br/
+Acknowledgments: Agradecemos a todos que relatam problemas de segurança de forma responsável.
+
+# Expires: Data de expiração deste arquivo (1 ano)
+Expires: 2026-10-13T23:59:59.000Z
+

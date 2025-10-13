@@ -1,0 +1,30 @@
+/* TEAM */
+Psicólogo: Gabriel
+CRP: 06/171722
+Localização: São Paulo, SP - Brasil
+Especialidade: Terapia Cognitivo-Comportamental
+
+/* SITE */
+Última atualização: 2025/10/13
+Linguagem: Português (pt-BR)
+Doctype: HTML5
+Framework: React + TypeScript + Vite
+Estilo: Tailwind CSS
+IDE: Cursor
+
+/* FOCO */
+Ansiedade
+Depressão
+TDAH
+Autoestima
+Conflitos Amorosos
+Desenvolvimento Pessoal
+
+/* CONTATO */
+WhatsApp: +55 13 98166-4867
+Área de Atuação: Atendimento Online em todo Brasil
+
+/* AGRADECIMENTOS */
+Obrigado por visitar nosso site!
+Se você está buscando ajuda, não hesite em entrar em contato.
+
