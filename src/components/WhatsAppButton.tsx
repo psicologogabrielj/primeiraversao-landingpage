@@ -28,7 +28,7 @@ export function WhatsAppButton({
           variant="default"
           size="lg"
           onClick={onClick}
-          className="rounded-full shadow-2xl hover:shadow-3xl animate-glow bg-green-500 hover:bg-green-600 text-white"
+          className="rounded-full shadow-2xl hover:shadow-3xl animate-glow bg-green-500 hover:bg-green-600 text-white cursor-pointer"
         >
           <MessageCircle className="h-6 w-6 mr-2" />
           Agendar Consulta

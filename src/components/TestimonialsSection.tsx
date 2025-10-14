@@ -1,5 +1,6 @@
 import { Star, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { AnimatedSection } from "./AnimatedSection";
 import { useTrackEvent } from "@/lib/ga";
 
 export const TestimonialsSection = () => {
@@ -46,11 +47,17 @@ export const TestimonialsSection = () => {
   return (
     <section id="testimonials" className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-serif font-bold text-foreground mb-6">
-            Depoimentos de Pacientes
-          </h2>
-        </div>
+        <AnimatedSection>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-serif font-bold text-foreground mb-6">
+              Depoimentos de Pacientes
+            </h2>
+            <p className="text-xl text-muted-foreground">
+              Veja o que dizem as pessoas que já iniciaram sua jornada de
+              transformação
+            </p>
+          </div>
+        </AnimatedSection>
 
         <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
           {testimonials.map((testimonial, index) => (
@@ -85,7 +92,7 @@ export const TestimonialsSection = () => {
             <Button
               variant="default"
               size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-glow hover:shadow-hover cursor-pointer"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-glow hover:shadow-hover hover:scale-105 transition-all duration-300 cursor-pointer"
             >
               Começar Tratamento
             </Button>

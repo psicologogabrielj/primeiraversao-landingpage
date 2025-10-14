@@ -1,8 +1,12 @@
+import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
+import { CredibilityBadges } from "@/components/CredibilityBadges";
 import { AboutSection } from "@/components/AboutSection";
+import { WhyTCCSection } from "@/components/WhyTCCSection";
 import { OnlineTherapySection } from "@/components/OnlineTherapySection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { FAQSection } from "@/components/FAQSection";
+import { ContactFormSection } from "@/components/ContactFormSection";
 
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Footer } from "@/components/Footer";
@@ -63,11 +67,16 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Navbar />
       <HeroSection />
+      <CredibilityBadges />
       <AboutSection />
+      {/* Checar se da pra usar isso */}
+      {/* <WhyTCCSection /> */}
       <OnlineTherapySection />
       <TestimonialsSection />
       <FAQSection />
+      <ContactFormSection />
 
       <Footer />
       <WhatsAppButton

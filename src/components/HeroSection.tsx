@@ -33,7 +33,10 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-screen bg-hero-gradient flex items-center justify-center overflow-hidden">
+    <section
+      id="hero"
+      className="relative min-h-screen bg-hero-gradient flex items-center justify-center overflow-hidden"
+    >
       {/* Background Texture */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
@@ -72,9 +75,9 @@ export function HeroSection() {
                 <Button
                   variant="default"
                   size="lg"
-                  className="flex items-center gap-3 bg-green-500 hover:bg-green-600 text-white cursor-pointer"
+                  className="flex items-center gap-3 bg-green-500 hover:bg-green-600 text-white cursor-pointer hover:scale-105 active:scale-95 transition-all duration-300 shadow-lg hover:shadow-xl"
                 >
-                  <MessageCircle className="h-5 w-5" />
+                  <MessageCircle className="h-5 w-5 animate-pulse" />
                   Agendar Consulta
                 </Button>
               </a>
@@ -90,7 +93,7 @@ export function HeroSection() {
                 <Button
                   variant="default"
                   size="lg"
-                  className="flex items-center gap-3 cursor-pointer"
+                  className="flex items-center gap-3 cursor-pointer hover:scale-105 active:scale-95 transition-all duration-300"
                 >
                   <Instagram className="h-5 w-5" />
                   Meu Instagram
@@ -122,7 +125,8 @@ export function HeroSection() {
               <img
                 src={psychologistPhoto}
                 alt="Gabriel - Psicólogo clínico especialista em Terapia Cognitivo-Comportamental para ansiedade, depressão e TDAH"
-                className="w-80 h-80 lg:w-96 lg:h-96 object-cover rounded-full shadow-card border-2 border-primary/20"
+                className="w-80 h-80 lg:w-96 lg:h-96 object-cover rounded-full shadow-card border-2 border-primary/20 hover:scale-105 transition-transform duration-500"
+                loading="eager"
               />
             </div>
           </div>

@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { AnimatedSection } from "./AnimatedSection";
 import { useTrackEvent } from "@/lib/ga";
 
 const FAQSection = () => {
@@ -49,37 +50,41 @@ const FAQSection = () => {
   return (
     <section id="faq" className="py-20 bg-section">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-foreground mb-4">
-            Dúvidas Frequentes
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Encontre respostas para as principais questões sobre terapia online
-            e nossos serviços
-          </p>
-        </div>
+        <AnimatedSection>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-foreground mb-4">
+              Dúvidas Frequentes
+            </h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              Encontre respostas para as principais questões sobre terapia
+              online e nossos serviços
+            </p>
+          </div>
+        </AnimatedSection>
 
-        <div className="max-w-4xl mx-auto">
-          <Accordion type="single" collapsible className="w-full space-y-4">
-            {faqs.map((faq, index) => (
-              <AccordionItem
-                key={index}
-                value={`item-${index}`}
-                className="bg-card rounded-2xl px-6 border-0 shadow-card hover:shadow-hover transition-all duration-300"
-              >
-                <AccordionTrigger
-                  className="text-left text-lg font-semibold text-foreground hover:no-underline py-6"
-                  onClick={() => handleQuestionOpen(faq.question)}
+        <AnimatedSection animation="fade-in-up">
+          <div className="max-w-4xl mx-auto">
+            <Accordion type="single" collapsible className="w-full space-y-4">
+              {faqs.map((faq, index) => (
+                <AccordionItem
+                  key={index}
+                  value={`item-${index}`}
+                  className="bg-card rounded-2xl px-6 border-0 shadow-card hover:shadow-hover hover:scale-[1.02] transition-all duration-300"
                 >
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground leading-relaxed pb-6 text-base">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
+                  <AccordionTrigger
+                    className="text-left text-lg font-semibold text-foreground hover:no-underline py-6"
+                    onClick={() => handleQuestionOpen(faq.question)}
+                  >
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground leading-relaxed pb-6 text-base">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        </AnimatedSection>
       </div>
     </section>
   );
