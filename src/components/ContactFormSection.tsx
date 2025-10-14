@@ -238,20 +238,25 @@ Mensagem: ${formData.message}`;
                     </div>
                   </div>
                 </div>
-
-                <div className="bg-primary/10 border border-primary/20 rounded-2xl p-6">
-                  <p className="text-sm text-muted-foreground text-center leading-relaxed">
-                    <strong className="text-foreground">
-                      Confidencialidade garantida:
-                    </strong>{" "}
-                    Todas as informações compartilhadas são protegidas pelo
-                    sigilo profissional do Código de Ética do Psicólogo.
-                  </p>
-                </div>
               </div>
             </AnimatedSection>
           </div>
         </div>
+
+        {/* Confidencialidade - Centralizada entre as duas colunas */}
+        <AnimatedSection animation="fade-in-up" className="mt-12">
+          <div className="bg-primary/10 border border-primary/20 rounded-2xl p-6 max-w-2xl mx-auto">
+            <div className="text-center">
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                <strong className="text-foreground block mb-1">
+                  Confidencialidade garantida:
+                </strong>
+                Todas as informações compartilhadas são protegidas pelo sigilo
+                profissional do Código de Ética do Psicólogo.
+              </p>
+            </div>
+          </div>
+        </AnimatedSection>
       </div>
     </section>
   );
