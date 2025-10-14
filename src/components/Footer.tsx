@@ -1,4 +1,12 @@
-import { Heart, Phone, Mail, MapPin, Shield } from "lucide-react";
+import {
+  Heart,
+  Phone,
+  Mail,
+  MapPin,
+  Shield,
+  Instagram,
+  Linkedin,
+} from "lucide-react";
 import { useTrackEvent } from "@/lib/ga";
 
 export const Footer = () => {
@@ -10,6 +18,14 @@ export const Footer = () => {
 
   const handleEmailClick = () => {
     trackEvent("Footer", "Click", "Email");
+  };
+
+  const handleInstagramClick = () => {
+    trackEvent("Footer", "Click", "Instagram");
+  };
+
+  const handleLinkedInClick = () => {
+    trackEvent("Footer", "Click", "LinkedIn");
   };
 
   return (
@@ -41,6 +57,26 @@ export const Footer = () => {
               <div className="flex items-center gap-3 text-muted-foreground">
                 <MapPin className="h-5 w-5" />
                 <span>Atendimento Online</span>
+              </div>
+              <div className="flex gap-4 mt-4">
+                <a
+                  href="https://www.instagram.com/gabrieljpsi/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={handleInstagramClick}
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  <Instagram className="h-6 w-6" />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/gabrielj-psi/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={handleLinkedInClick}
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  <Linkedin className="h-6 w-6" />
+                </a>
               </div>
             </div>
           </div>
