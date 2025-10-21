@@ -11,14 +11,14 @@ export function CredibilityBadges() {
     },
     {
       icon: Brain,
-      title: "Especialista TCC",
-      description: "Baseado em evidências",
+      title: "Abordagem",
+      description: "Terapia Cognitivo-Comportamental",
       color: "text-primary",
     },
     {
       icon: Shield,
-      title: "UNIFESP",
-      description: "Formação Federal",
+      title: "Formação Acadêmica",
+      description: "UNIFESP",
       color: "text-primary",
     },
     {
@@ -43,10 +43,10 @@ export function CredibilityBadges() {
                 <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-3 group-hover:bg-primary/20 transition-colors">
                   <badge.icon className={`h-8 w-8 ${badge.color}`} />
                 </div>
-                <h3 className="text-sm font-bold text-foreground mb-1">
+                <h3 className="text-base font-bold text-foreground mb-1">
                   {badge.title}
                 </h3>
-                <p className="text-xs text-muted-foreground">
+                <p className="text-sm text-muted-foreground">
                   {badge.description}
                 </p>
               </div>

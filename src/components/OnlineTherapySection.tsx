@@ -104,7 +104,7 @@ export const OnlineTherapySection = () => {
                   <h4 className="text-lg font-semibold text-card-foreground mb-2">
                     Entre em Contato
                   </h4>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
+                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
                     Envie uma mensagem via WhatsApp para agendar sua primeira
                     consulta
                   </p>
@@ -120,7 +120,7 @@ export const OnlineTherapySection = () => {
                   <h4 className="text-lg font-semibold text-card-foreground mb-2">
                     Primeiro Encontro
                   </h4>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
+                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
                     Momento para você trazer o que te motiva a procurar
                     tratamento, tirar suas maiores dúvidas e entender como o
                     processo de psicoterapia pode te ajudar de maneira
@@ -138,7 +138,7 @@ export const OnlineTherapySection = () => {
                   <h4 className="text-lg font-semibold text-card-foreground mb-2">
                     Início das sessões
                   </h4>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
+                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
                     Sessões semanais regulares, focadas em um trabalho
                     horizontal e com objetivo de sanar as metas estipuladas em
                     conjunto ao longo do processo de psicoterapia. Seguindo,
