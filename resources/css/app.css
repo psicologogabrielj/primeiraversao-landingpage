@@ -1,4 +1,10 @@
 @import "tailwindcss";
+/* Fontes servidas pelo próprio site (antes: Google Fonts, que bloqueava a
+   primeira pintura por ~800 ms numa conexão móvel). Variáveis: um arquivo por
+   família cobre todos os pesos; o unicode-range faz o navegador baixar só o
+   subconjunto latino que a página usa. */
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/playfair-display";
 
 @custom-variant dark (&:is(.dark *));
 

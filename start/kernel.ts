@@ -10,6 +10,8 @@ import server from '@adonisjs/core/services/server'
 server.errorHandler(() => import('#exceptions/handler'))
 
 server.use([
+  // Primeiro da fila: precisa envolver tudo, inclusive o static middleware.
+  () => import('#middleware/compression_middleware'),
   () => import('#middleware/container_bindings_middleware'),
   () => import('@adonisjs/static/static_middleware'),
   () => import('@adonisjs/cors/cors_middleware'),

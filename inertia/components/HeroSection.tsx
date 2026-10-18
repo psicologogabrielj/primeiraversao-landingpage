@@ -46,8 +46,9 @@ export function HeroSection() {
       {/* Content: pt-28 desconta a navbar fixa (h-20) para o título não colar nela */}
       <div className="relative z-10 container mx-auto px-4 pt-28 pb-16 lg:py-28">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
-          {/* Text Content */}
-          <div className="space-y-8 animate-fade-in order-2 lg:order-1">
+          {/* Text Content — sem animação de entrada: o título é o LCP da
+              página, e um fade a partir de opacity 0 atrasava a métrica */}
+          <div className="space-y-8 order-2 lg:order-1">
             <div className="space-y-6">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-foreground leading-tight text-balance">
                 <span className="text-primary">Pensar</span> com mais clareza,{" "}
