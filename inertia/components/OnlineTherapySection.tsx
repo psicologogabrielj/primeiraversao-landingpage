@@ -66,12 +66,8 @@ export const OnlineTherapySection = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-start mb-16">
           <AnimatedSection animation="slide-in-left">
             <div className="space-y-8">
-              {features.map((feature, index) => (
-                <div
-                  key={feature.title}
-                  className="flex gap-4 group animate-fade-in-up"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
+              {features.map((feature) => (
+                <div key={feature.title} className="flex gap-4 group">
                   <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
                     <feature.icon className="h-6 w-6 text-primary" />
                   </div>

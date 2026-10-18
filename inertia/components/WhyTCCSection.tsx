@@ -84,11 +84,10 @@ export function WhyTCCSection() {
             </h3>
 
             <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-              {conditions.map((condition, index) => (
+              {conditions.map((condition) => (
                 <div
                   key={condition.name}
-                  className="bg-card/50 backdrop-blur-sm rounded-xl p-6 animate-fade-in-up"
-                  style={{ animationDelay: `${index * 0.1}s` }}
+                  className="bg-card/50 backdrop-blur-sm rounded-xl p-6"
                 >
                   <div className="flex items-center justify-between mb-3">
                     <span className="text-card-foreground font-medium">

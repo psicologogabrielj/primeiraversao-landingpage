@@ -6,12 +6,11 @@ import { AboutSection } from "@/components/AboutSection";
 import { OnlineTherapySection } from "@/components/OnlineTherapySection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { FAQSection } from "@/components/FAQSection";
-import { ContactFormSection } from "@/components/ContactFormSection";
+import { ContactSection } from "@/components/ContactSection";
 
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Footer } from "@/components/Footer";
 import { Head } from "@inertiajs/react";
-import { Toaster } from "sonner";
 import { useGAInitialize, useTrackEvent } from "@/lib/ga";
 import { useScrollDepthTracking } from "@/hooks/useScrollTracking";
 import { useEffect } from "react";
@@ -80,7 +79,6 @@ const Landing = ({ gaId }: Props) => {
           Psicólogo Online Gabriel - Ansiedade, Depressão, TDAH | Terapia Cognitivo-Comportamental
         </title>
       </Head>
-      <Toaster position="top-center" />
       <Navbar />
       <HeroSection />
       <CredibilityBadges />
@@ -90,7 +88,7 @@ const Landing = ({ gaId }: Props) => {
       <OnlineTherapySection />
       <TestimonialsSection />
       <FAQSection />
-      <ContactFormSection />
+      <ContactSection />
 
       <Footer />
       <WhatsAppButton

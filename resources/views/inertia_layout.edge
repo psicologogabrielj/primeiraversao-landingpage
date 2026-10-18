@@ -3,6 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {{-- Marca que há JS antes da primeira pintura: só então o CSS esconde as
+         seções que o AnimatedSection revela no scroll (ver .reveal no app.css). --}}
+    <script>document.documentElement.classList.add('js')</script>
     {{-- O <title> vem da página via <Head> do Inertia (@inertiaHead abaixo).
          O resto do SEO é estático e mora aqui, como no index.html original. --}}
 
