@@ -9,12 +9,12 @@ export const faqs: Pergunta[] = [
   {
     question: "Sessões online são seguras?",
     answer:
-      "Sim, por conta de as chamadas serem realizadas através de plataforma que utiliza criptografia de dados em trânsito e em repouso, proteção contra acesso não autorizado a reuniões. Para estar de acordo com as orientações de privacidade e sigilo colocadas pelo Conselho Federal de Psicologia, as são sessões a partir de um ambiente privado, seguro e utilizando fones de ouvido a todo momento (o paciente é aconselhado a seguir as mesmas orientações).",
+      "Sim, por conta de as chamadas serem realizadas através de plataforma que utiliza criptografia de dados em trânsito e em repouso, proteção contra acesso não autorizado a reuniões. Para estar de acordo com as orientações de privacidade e sigilo colocadas pelo Conselho Federal de Psicologia, as sessões são realizadas a partir de um ambiente privado, seguro e utilizando fones de ouvido a todo momento (o paciente é aconselhado a seguir as mesmas orientações).",
   },
   {
     question: "Preciso levar alguma coisa para as consultas?",
     answer:
-      "Não é obrigatório levar nada para o atendimento. Mas, pensando em melhorar a experiência da sessão, aproveitando o conforto da sua casa e mantendo o sigilo do atendimento, algumas ideias são: trazer um bloco de anotações para insights, trazer uma bebida como um chá ou chocolate quente, manter o ambiente climatizado, estar em um local confortável e privativo, ter um lenço para se uma emoção mais intensa surgir. Evite ter no ambiente estímulos que possam te distrair, como músicas agitadas ou avisos de notificação.",
+      "Não é obrigatório levar nada para o atendimento. Mas, pensando em melhorar a experiência da sessão, aproveitando o conforto da sua casa e mantendo o sigilo do atendimento, algumas ideias são: trazer um bloco de anotações para insights, trazer uma bebida como um chá ou chocolate quente, manter o ambiente climatizado, estar em um local confortável e privativo, ter um lenço caso uma emoção mais intensa surja. Evite ter no ambiente estímulos que possam te distrair, como músicas agitadas ou avisos de notificação.",
   },
   {
     question: "Como sei que o tratamento está funcionando?",
@@ -34,6 +34,6 @@ export const faqs: Pergunta[] = [
   {
     question: "Qual o preço das sessões?",
     answer:
-      "O Conselho Federal de Psicologia não permite que o preço seja usado como forma de divulgação. Por conta disso, não é divulgado o preço no site. Porém, ao entrar em contato diretamente pelo whatsapp, é possível conseguir mais informações sobre preço do plano mensal de atendimento, formas de pagamento, envio de recibo e como funciona o processo de alta da psicoterapia.",
+      "O Conselho Federal de Psicologia não permite que o preço seja usado como forma de divulgação. Por conta disso, não é divulgado o preço no site. Porém, ao entrar em contato diretamente pelo WhatsApp, é possível conseguir mais informações sobre preço do plano mensal de atendimento, formas de pagamento, envio de recibo e como funciona o processo de alta da psicoterapia.",
   },
 ];
