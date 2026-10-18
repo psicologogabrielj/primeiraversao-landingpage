@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { MessageCircle, Mail, User, Phone, Send } from "lucide-react";
+import { MessageCircle, Mail, User, Phone, Send, Globe } from "lucide-react";
 import { AnimatedSection } from "./AnimatedSection";
 import { useTrackEvent } from "@/lib/ga";
 import { toast } from "sonner";
@@ -15,38 +15,39 @@ export function ContactFormSection() {
     phone: "",
     message: "",
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  // O "envio" é abrir o WhatsApp com a mensagem pronta. O window.open precisa
+  // rodar direto no submit: dentro de setTimeout ele sai do gesto do usuário e
+  // o bloqueador de pop-up (Safari/iOS principalmente) barra a janela.
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-
     trackEvent("Contact Form", "Submit", "Contact Form Section");
 
-    // Simulate form submission - In production, integrate with your backend or email service
-    setTimeout(() => {
-      // Create WhatsApp message with form data
-      const whatsappMessage = `Olá! Meu nome é ${formData.name}.
+    const linhas = [
+      `Olá! Meu nome é ${formData.name}.`,
+      "",
+      formData.email ? `Email: ${formData.email}` : null,
+      formData.phone ? `Telefone: ${formData.phone}` : null,
+      "",
+      `Mensagem: ${formData.message}`,
+    ].filter((linha) => linha !== null);
+    const whatsappUrl = `https://wa.me/5513981664867?text=${encodeURIComponent(
+      linhas.join("\n")
+    )}`;
 
-Email: ${formData.email}
-Telefone: ${formData.phone}
+    // Sem "noopener" aqui: com ele o window.open sempre retorna null e não dá
+    // para saber se o pop-up foi bloqueado. O opener é zerado à mão.
+    const janela = window.open(whatsappUrl, "_blank");
+    if (!janela) {
+      window.location.href = whatsappUrl;
+      return;
+    }
+    janela.opener = null;
 
-Mensagem: ${formData.message}`;
-
-      const whatsappUrl = `https://wa.me/5513981664867?text=${encodeURIComponent(
-        whatsappMessage
-      )}`;
-
-      toast.success("Redirecionando para WhatsApp...", {
-        description: "Vamos continuar a conversa por lá!",
-      });
-
-      setTimeout(() => {
-        window.open(whatsappUrl, "_blank");
-        setIsSubmitting(false);
-        setFormData({ name: "", email: "", phone: "", message: "" });
-      }, 1500);
-    }, 1000);
+    toast.success("Abrindo o WhatsApp...", {
+      description: "É só enviar a mensagem por lá!",
+    });
+    setFormData({ name: "", email: "", phone: "", message: "" });
   };
 
   const handleWhatsAppDirect = () => {
@@ -54,11 +55,11 @@ Mensagem: ${formData.message}`;
     const whatsappUrl = `https://wa.me/5513981664867?text=${encodeURIComponent(
       "Olá! Gostaria de agendar uma consulta."
     )}`;
-    window.open(whatsappUrl, "_blank");
+    window.open(whatsappUrl, "_blank", "noopener");
   };
 
   return (
-    <section className="py-20 bg-section-gradient">
+    <section id="contato" className="py-20 bg-section-gradient">
       <div className="container mx-auto px-4">
         <AnimatedSection>
           <div className="text-center mb-12">
@@ -81,18 +82,23 @@ Mensagem: ${formData.message}`;
                 </h3>
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div>
-                    <label className="block text-sm font-medium text-card-foreground mb-2">
+                    <label
+                      htmlFor="contato-name"
+                      className="block text-sm font-medium text-card-foreground mb-2"
+                    >
                       Nome Completo *
                     </label>
                     <div className="relative">
-                      <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                      <User aria-hidden className="pointer-events-none absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                       <Input
                         type="text"
+                        id="contato-name"
                         value={formData.name}
                         onChange={(e) =>
                           setFormData({ ...formData, name: e.target.value })
                         }
                         placeholder="Seu nome"
+                        autoComplete="name"
                         className="pl-10"
                         required
                       />
@@ -100,48 +106,61 @@ Mensagem: ${formData.message}`;
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-card-foreground mb-2">
-                      Email *
+                    <label
+                      htmlFor="contato-email"
+                      className="block text-sm font-medium text-card-foreground mb-2"
+                    >
+                      Email (opcional)
                     </label>
                     <div className="relative">
-                      <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                      <Mail aria-hidden className="pointer-events-none absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                       <Input
                         type="email"
+                        id="contato-email"
                         value={formData.email}
                         onChange={(e) =>
                           setFormData({ ...formData, email: e.target.value })
                         }
                         placeholder="seu@email.com"
+                        autoComplete="email"
                         className="pl-10"
-                        required
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-card-foreground mb-2">
+                    <label
+                      htmlFor="contato-phone"
+                      className="block text-sm font-medium text-card-foreground mb-2"
+                    >
                       Telefone (opcional)
                     </label>
                     <div className="relative">
-                      <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                      <Phone aria-hidden className="pointer-events-none absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                       <Input
                         type="tel"
+                        id="contato-phone"
                         value={formData.phone}
                         onChange={(e) =>
                           setFormData({ ...formData, phone: e.target.value })
                         }
                         placeholder="(00) 00000-0000"
+                        autoComplete="tel"
                         className="pl-10"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-card-foreground mb-2">
+                    <label
+                      htmlFor="contato-message"
+                      className="block text-sm font-medium text-card-foreground mb-2"
+                    >
                       Mensagem *
                     </label>
                     <Textarea
-                      value={formData.message}
+                      id="contato-message"
+                        value={formData.message}
                       onChange={(e) =>
                         setFormData({ ...formData, message: e.target.value })
                       }
@@ -154,25 +173,16 @@ Mensagem: ${formData.message}`;
 
                   <Button
                     type="submit"
-                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground [&_svg]:size-5"
                     size="lg"
-                    disabled={isSubmitting}
                   >
-                    {isSubmitting ? (
-                      <>
-                        <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2" />
-                        Enviando...
-                      </>
-                    ) : (
-                      <>
-                        <Send className="h-5 w-5 mr-2" />
-                        Enviar Mensagem
-                      </>
-                    )}
+                    <Send />
+                    Enviar pelo WhatsApp
                   </Button>
 
                   <p className="text-xs text-muted-foreground text-center">
-                    * Campos obrigatórios
+                    * Campos obrigatórios. A mensagem abre pronta no
+                    WhatsApp — nada fica salvo no site.
                   </p>
                 </form>
               </div>
@@ -219,7 +229,7 @@ Mensagem: ${formData.message}`;
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
-                      <Mail className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <Globe className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                       <div>
                         <p className="font-medium text-card-foreground">
                           Atendimento

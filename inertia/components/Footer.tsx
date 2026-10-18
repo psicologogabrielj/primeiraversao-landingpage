@@ -51,7 +51,7 @@ export const Footer = () => {
                 className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors cursor-pointer"
               >
                 <Mail className="h-5 w-5" />
-                <span>psicologo.gabrielj@gmail.com</span>
+                <span className="break-all">psicologo.gabrielj@gmail.com</span>
               </a>
               <div className="flex items-center gap-3 text-muted-foreground">
                 <MapPin className="h-5 w-5" />
@@ -63,6 +63,7 @@ export const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={handleInstagramClick}
+                  aria-label="Instagram do Gabriel"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   <Instagram className="h-6 w-6" />
@@ -72,6 +73,7 @@ export const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={handleLinkedInClick}
+                  aria-label="LinkedIn do Gabriel"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   <Linkedin className="h-6 w-6" />

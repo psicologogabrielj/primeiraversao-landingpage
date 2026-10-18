@@ -1,5 +1,6 @@
+import { useEffect, useState } from "react";
 import { MessageCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 interface WhatsAppButtonProps {
   onClick?: () => void;
@@ -12,28 +13,40 @@ export function WhatsAppButton({
   onMouseEnter,
   onMouseLeave,
 }: WhatsAppButtonProps) {
+  // No topo o hero já tem o CTA de agendar; o flutuante só aparece depois,
+  // e assim não cobre os botões do hero no mobile.
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY > window.innerHeight * 0.6);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <div className="fixed bottom-6 right-6 z-50">
-      <a
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
-        onClick={onClick}
-        href={`https://wa.me/5513981664867?text=${encodeURIComponent(
-          "Olá! Gostaria de agendar uma consulta."
-        )}`}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Button
-          variant="default"
-          size="lg"
-          onClick={onClick}
-          className="rounded-full shadow-2xl hover:shadow-3xl animate-glow bg-green-500 hover:bg-green-600 text-white cursor-pointer"
-        >
-          <MessageCircle className="h-6 w-6 mr-2" />
-          Agendar Consulta
-        </Button>
-      </a>
-    </div>
+    <a
+      href={`https://wa.me/5513981664867?text=${encodeURIComponent(
+        "Olá! Gostaria de agendar uma consulta."
+      )}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Agendar consulta pelo WhatsApp"
+      tabIndex={visible ? 0 : -1}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      onClick={onClick}
+      className={cn(
+        "fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 inline-flex items-center gap-2 rounded-full bg-green-500 hover:bg-green-600 text-white font-medium shadow-2xl animate-glow transition-all duration-300",
+        "h-14 w-14 justify-center sm:h-12 sm:w-auto sm:px-6",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+        visible
+          ? "opacity-100 translate-y-0"
+          : "opacity-0 translate-y-4 pointer-events-none"
+      )}
+    >
+      <MessageCircle className="h-6 w-6 shrink-0" />
+      <span className="hidden sm:inline">Agendar Consulta</span>
+    </a>
   );
 }

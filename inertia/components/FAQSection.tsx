@@ -48,11 +48,11 @@ const FAQSection = () => {
   ];
 
   return (
-    <section id="faq" className="py-20 bg-section">
+    <section id="faq" className="py-20 bg-background-subtle">
       <div className="container mx-auto px-4">
         <AnimatedSection>
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-4">
+            <h2 className="text-4xl lg:text-5xl font-serif font-bold text-foreground mb-6">
               Dúvidas Frequentes
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -69,10 +69,10 @@ const FAQSection = () => {
                 <AccordionItem
                   key={index}
                   value={`item-${index}`}
-                  className="bg-card rounded-2xl px-6 border-0 shadow-card hover:shadow-hover hover:scale-[1.02] transition-all duration-300"
+                  className="bg-card rounded-2xl px-6 border border-border shadow-card hover:border-primary/30 data-[state=open]:border-primary/40 transition-colors duration-300"
                 >
                   <AccordionTrigger
-                    className="text-left text-lg font-semibold text-foreground hover:no-underline py-6"
+                    className="text-left text-base sm:text-lg font-semibold text-foreground hover:no-underline hover:text-primary py-5 sm:py-6 gap-4"
                     onClick={() => handleQuestionOpen(faq.question)}
                   >
                     {faq.question}

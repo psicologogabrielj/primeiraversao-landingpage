@@ -10,10 +10,10 @@
   :root {
     /* Paleta de cores profissional */
     --background: 0 0% 0%;
-    --background-subtle: 0 0% 2%;
+    --background-subtle: 0 0% 3%;
     --foreground: 0 0% 100%;
 
-    --card: 0 0% 1%;
+    --card: 0 0% 6%;
     --card-foreground: 0 0% 100%;
 
     --popover: 0 0% 1%;
@@ -37,8 +37,8 @@
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 8%;
-    --input: 0 0% 8%;
+    --border: 0 0% 15%;
+    --input: 0 0% 20%;
     --ring: 35 35% 55%;
 
     --radius: 0.75rem;
@@ -46,7 +46,7 @@
     /* Gradientes profissionais */
     --gradient-hero: linear-gradient(135deg, hsl(0 0% 0%) 0%, hsl(0 0% 2%) 100%);
     --gradient-section: linear-gradient(180deg, hsl(0 0% 1%) 0%, hsl(0 0% 0%) 100%);
-    --gradient-card: linear-gradient(135deg, hsl(0 0% 2%) 0%, hsl(0 0% 1%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 7%) 0%, hsl(0 0% 5%) 100%);
 
     /* Sombras elegantes */
     --shadow-card: 0 10px 30px -15px hsl(35 35% 55% / 0.3);
@@ -261,5 +261,20 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+/* Quem pede menos movimento no sistema não recebe as animações de entrada
+   nem o brilho pulsante do botão do WhatsApp. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

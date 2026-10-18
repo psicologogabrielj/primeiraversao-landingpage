@@ -1,4 +1,4 @@
-import { Shield, Award, Brain, Lock } from "lucide-react";
+import { GraduationCap, Award, Brain, Lock } from "lucide-react";
 import { AnimatedSection } from "./AnimatedSection";
 
 export function CredibilityBadges() {
@@ -16,7 +16,7 @@ export function CredibilityBadges() {
       color: "text-primary",
     },
     {
-      icon: Shield,
+      icon: GraduationCap,
       title: "Formação Acadêmica",
       description: "UNIFESP",
       color: "text-primary",

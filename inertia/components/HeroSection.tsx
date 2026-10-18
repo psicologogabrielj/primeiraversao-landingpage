@@ -3,7 +3,7 @@ import { MessageCircle } from "lucide-react";
 import { CiInstagram as Instagram } from "react-icons/ci";
 import { useTrackEvent } from "@/lib/ga";
 
-import psychologistPhoto from "@/assets/f18bb6da-f51f-4400-9156-6e593a7a4d56.png";
+import psychologistPhoto from "@/assets/gabriel.webp";
 
 export function HeroSection() {
   const trackEvent = useTrackEvent();
@@ -42,91 +42,104 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 py-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      {/* Content: pt-28 desconta a navbar fixa (h-20) para o título não colar nela */}
+      <div className="relative z-10 container mx-auto px-4 pt-28 pb-16 lg:py-28">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
           {/* Text Content */}
-          <div className="space-y-8 animate-fade-in">
+          <div className="space-y-8 animate-fade-in order-2 lg:order-1">
             <div className="space-y-6">
-              <h1 className="text-5xl lg:text-6xl font-serif font-bold text-foreground leading-tight">
-                <span className="font-bold text-primary">Pensar</span> com mais
-                clareza, <span className="font-bold text-primary">sentir</span>{" "}
-                com mais consciência,
-                <span className="font-bold text-primary block">agir</span> com
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-foreground leading-tight text-balance">
+                <span className="text-primary">Pensar</span> com mais clareza,{" "}
+                <span className="text-primary">sentir</span> com mais
+                consciência, <span className="text-primary">agir</span> com
                 mais propósito
               </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed">
+              <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-xl">
                 Psicoterapia online, com eficácia e empatia. Enfrente emoções
                 angustiantes com apoio especializado.
               </p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <a
-                href={`https://wa.me/5513981664867?text=${encodeURIComponent(
-                  "Olá! Gostaria de agendar uma consulta."
-                )}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                onMouseEnter={handleWhatsAppHover}
-                onMouseLeave={handleWhatsAppLeave}
-                onClick={handleWhatsAppClick}
+              <Button
+                asChild
+                size="lg"
+                className="bg-green-500 hover:bg-green-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 [&_svg]:size-5"
               >
-                <Button
-                  variant="default"
-                  size="lg"
-                  className="flex items-center gap-3 bg-green-500 hover:bg-green-600 text-white cursor-pointer hover:scale-105 active:scale-95 transition-all duration-300 shadow-lg hover:shadow-xl"
+                <a
+                  href={`https://wa.me/5513981664867?text=${encodeURIComponent(
+                    "Olá! Gostaria de agendar uma consulta."
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onMouseEnter={handleWhatsAppHover}
+                  onMouseLeave={handleWhatsAppLeave}
+                  onClick={handleWhatsAppClick}
                 >
-                  <MessageCircle className="h-5 w-5 animate-pulse" />
+                  <MessageCircle />
                   Agendar Consulta
-                </Button>
-              </a>
+                </a>
+              </Button>
 
-              <a
-                href="https://www.instagram.com/gabrieljpsi/"
-                target="_blank"
-                rel="noopener noreferrer"
-                onMouseEnter={handleInstagramHover}
-                onMouseLeave={handleInstagramLeave}
-                onClick={handleInstagramClick}
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="border-primary/50 bg-transparent text-foreground hover:bg-primary/10 hover:text-foreground transition-all duration-300 hover:scale-105 active:scale-95 [&_svg]:size-5"
               >
-                <Button
-                  variant="default"
-                  size="lg"
-                  className="flex items-center gap-3 cursor-pointer hover:scale-105 active:scale-95 transition-all duration-300"
+                <a
+                  href="https://www.instagram.com/gabrieljpsi/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onMouseEnter={handleInstagramHover}
+                  onMouseLeave={handleInstagramLeave}
+                  onClick={handleInstagramClick}
                 >
-                  <Instagram className="h-5 w-5" />
+                  <Instagram />
                   Meu Instagram
-                </Button>
-              </a>
+                </a>
+              </Button>
             </div>
 
-            <div className="flex items-center gap-8 pt-8">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-primary">70+</div>
-                <div className="text-muted-foreground">Pacientes atendidos</div>
+            <div className="grid grid-cols-3 gap-4 sm:gap-8 pt-4 sm:pt-8 max-w-lg">
+              <div className="text-center sm:text-left">
+                <p className="text-3xl font-bold text-primary">70+</p>
+                <p className="text-sm sm:text-base text-muted-foreground">
+                  Pacientes atendidos
+                </p>
               </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-primary">
+              <div className="text-center sm:text-left">
+                <p className="text-3xl font-bold text-primary">
                   {new Date().getFullYear() - 2022}+
-                </div>
-                <div className="text-muted-foreground">Anos de experiência</div>
+                </p>
+                <p className="text-sm sm:text-base text-muted-foreground">
+                  Anos de experiência
+                </p>
               </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-primary">100%</div>
-                <div className="text-muted-foreground">Online no Brasil</div>
+              <div className="text-center sm:text-left">
+                <p className="text-3xl font-bold text-primary">100%</p>
+                <p className="text-sm sm:text-base text-muted-foreground">
+                  Online no Brasil
+                </p>
               </div>
             </div>
           </div>
 
-          {/* Photo */}
-          <div className="flex justify-center lg:justify-end">
+          {/* Photo: no mobile vem antes do texto, menor, para o rosto aparecer na primeira tela */}
+          <div className="flex justify-center lg:justify-end order-1 lg:order-2">
             <div className="relative">
+              <div
+                aria-hidden
+                className="absolute -inset-3 rounded-full bg-primary/20 blur-2xl"
+              />
               <img
                 src={psychologistPhoto}
                 alt="Gabriel - Psicólogo clínico especialista em Terapia Cognitivo-Comportamental para ansiedade, depressão e TDAH"
-                className="w-80 h-80 lg:w-96 lg:h-96 object-cover rounded-full shadow-card border-2 border-primary/20 hover:scale-105 transition-transform duration-500"
+                width={384}
+                height={384}
+                className="relative w-44 h-44 sm:w-64 sm:h-64 lg:w-96 lg:h-96 object-cover rounded-full shadow-card ring-4 ring-primary/60 ring-offset-4 ring-offset-background"
                 loading="eager"
+                fetchPriority="high"
               />
             </div>
           </div>

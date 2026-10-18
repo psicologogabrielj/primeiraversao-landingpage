@@ -1,6 +1,6 @@
 import { Clock, Shield, CreditCard, Video } from "lucide-react";
 import { AnimatedSection } from "./AnimatedSection";
-import onlineTherapyImage from "@/assets/ambiente-atendimento-generico.png";
+import onlineTherapyImage from "@/assets/ambiente-atendimento.webp";
 
 export const OnlineTherapySection = () => {
   const features = [
@@ -30,6 +30,24 @@ export const OnlineTherapySection = () => {
     },
   ];
 
+  const steps = [
+    {
+      title: "Entre em Contato",
+      description:
+        "Envie uma mensagem via WhatsApp para agendar sua primeira consulta",
+    },
+    {
+      title: "Primeiro Encontro",
+      description:
+        "Momento para você trazer o que te motiva a procurar tratamento, tirar suas maiores dúvidas e entender como o processo de psicoterapia pode te ajudar de maneira específica.",
+    },
+    {
+      title: "Início das sessões",
+      description:
+        "Sessões semanais regulares, focadas em um trabalho horizontal e com objetivo de sanar as metas estipuladas em conjunto ao longo do processo de psicoterapia. Seguindo, portanto, até o momento da alta.",
+    },
+  ];
+
   return (
     <section id="therapy" className="py-20 bg-section-gradient">
       <div className="container mx-auto px-4">
@@ -45,7 +63,7 @@ export const OnlineTherapySection = () => {
           </div>
         </AnimatedSection>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+        <div className="grid lg:grid-cols-2 gap-12 items-start mb-16">
           <AnimatedSection animation="slide-in-left">
             <div className="space-y-8">
               {features.map((feature, index) => (
@@ -75,7 +93,9 @@ export const OnlineTherapySection = () => {
               <img
                 src={onlineTherapyImage}
                 alt="Ambiente de trabalho para terapia online - laptop e xícara em mesa de madeira"
-                className="w-full rounded-2xl shadow-hover group-hover:scale-105 transition-transform duration-500"
+                width={735}
+                height={1028}
+                className="w-full max-h-80 lg:max-h-[560px] object-cover rounded-2xl shadow-hover"
                 style={{
                   filter:
                     "sepia(10%) saturate(120%) hue-rotate(340deg) brightness(95%) contrast(105%)",
@@ -90,63 +110,29 @@ export const OnlineTherapySection = () => {
 
         <AnimatedSection animation="fade-in-up">
           <div className="bg-card rounded-2xl p-8 lg:p-12 shadow-card hover:shadow-hover transition-all duration-300">
-            <h3 className="text-2xl font-serif font-bold text-center text-card-foreground mb-8">
+            <h3 className="text-2xl font-serif font-bold text-center text-card-foreground mb-10">
               Processo de Agendamento
             </h3>
 
-            <div className="space-y-8 max-w-2xl">
-              {/* Item 1 */}
-              <div className="flex items-start gap-4">
-                <div className="w-16 h-16 bg-primary/15 rounded-full flex items-center justify-center border-2 border-primary/40 shadow-md flex-shrink-0">
-                  <span className="text-2xl font-bold text-primary">1</span>
-                </div>
-                <div>
-                  <h4 className="text-lg font-semibold text-card-foreground mb-2">
-                    Entre em Contato
-                  </h4>
-                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-                    Envie uma mensagem via WhatsApp para agendar sua primeira
-                    consulta
-                  </p>
-                </div>
-              </div>
-
-              {/* Item 2 */}
-              <div className="flex items-start gap-4">
-                <div className="w-16 h-16 bg-primary/15 rounded-full flex items-center justify-center border-2 border-primary/40 shadow-md flex-shrink-0">
-                  <span className="text-2xl font-bold text-primary">2</span>
-                </div>
-                <div>
-                  <h4 className="text-lg font-semibold text-card-foreground mb-2">
-                    Primeiro Encontro
-                  </h4>
-                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-                    Momento para você trazer o que te motiva a procurar
-                    tratamento, tirar suas maiores dúvidas e entender como o
-                    processo de psicoterapia pode te ajudar de maneira
-                    específica.
-                  </p>
-                </div>
-              </div>
-
-              {/* Item 3 */}
-              <div className="flex items-start gap-4">
-                <div className="w-16 h-16 bg-primary/15 rounded-full flex items-center justify-center border-2 border-primary/40 shadow-md flex-shrink-0">
-                  <span className="text-2xl font-bold text-primary">3</span>
-                </div>
-                <div>
-                  <h4 className="text-lg font-semibold text-card-foreground mb-2">
-                    Início das sessões
-                  </h4>
-                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-                    Sessões semanais regulares, focadas em um trabalho
-                    horizontal e com objetivo de sanar as metas estipuladas em
-                    conjunto ao longo do processo de psicoterapia. Seguindo,
-                    portanto, até o momento da alta.
-                  </p>
-                </div>
-              </div>
-            </div>
+            <ol className="grid gap-8 md:grid-cols-3">
+              {steps.map((step, index) => (
+                <li key={step.title} className="flex md:flex-col items-start gap-4">
+                  <div className="w-14 h-14 bg-primary/15 rounded-full flex items-center justify-center border-2 border-primary/40 shadow-md flex-shrink-0">
+                    <span className="text-xl font-bold text-primary">
+                      {index + 1}
+                    </span>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-card-foreground mb-2">
+                      {step.title}
+                    </h4>
+                    <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ol>
           </div>
         </AnimatedSection>
       </div>

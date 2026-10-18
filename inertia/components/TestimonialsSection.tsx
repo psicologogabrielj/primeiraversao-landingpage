@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AnimatedSection } from "./AnimatedSection";
@@ -54,47 +55,66 @@ export const TestimonialsSection = () => {
           </div>
         </AnimatedSection>
 
-        <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
-          {testimonials.map((testimonial, index) => (
-            <div
-              key={index}
-              className="bg-testimonial rounded-2xl p-6 shadow-card hover:shadow-hover transition-all duration-300 group break-inside-avoid mb-8"
-            >
-              <div className="mb-4">
-                <Quote className="h-8 w-8 text-primary opacity-60 mb-4" />
-                <p className="text-testimonial-foreground leading-relaxed italic">
-                  "{testimonial.text}"
-                </p>
-              </div>
-
-              <div className="mt-6 pt-4 border-t border-gray-400">
-                <p className="font-semibold text-testimonial-foreground">
-                  {testimonial.author}
-                </p>
-              </div>
-            </div>
+        <div className="columns-1 md:columns-2 lg:columns-3 gap-6">
+          {testimonials.map((testimonial) => (
+            <TestimonialCard key={testimonial.author} {...testimonial} />
           ))}
         </div>
 
         <div className="text-center mt-16">
-          <a
-            href={`https://wa.me/5513981664867?text=${encodeURIComponent(
-              "Olá! Gostaria de começar meu tratamento psicológico online."
-            )}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={handleWhatsAppClick}
+          <Button
+            asChild
+            size="lg"
+            className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-glow hover:shadow-hover hover:scale-105 transition-all duration-300"
           >
-            <Button
-              variant="default"
-              size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-glow hover:shadow-hover hover:scale-105 transition-all duration-300 cursor-pointer"
+            <a
+              href={`https://wa.me/5513981664867?text=${encodeURIComponent(
+                "Olá! Gostaria de começar meu tratamento psicológico online."
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={handleWhatsAppClick}
             >
               Começar Tratamento
-            </Button>
-          </a>
+            </a>
+          </Button>
         </div>
       </div>
     </section>
   );
 };
+
+// Depoimentos longos começam recolhidos: um card de 30 linhas desequilibrava a
+// grade e empurrava o CTA para longe.
+const LIMITE = 320;
+
+function TestimonialCard({ text, author }: { text: string; author: string }) {
+  const [expanded, setExpanded] = useState(false);
+  const longo = text.length > LIMITE;
+  const exibido =
+    longo && !expanded
+      ? `${text.slice(0, text.lastIndexOf(" ", LIMITE))}…`
+      : text;
+
+  return (
+    <figure className="bg-card border border-border rounded-2xl p-6 mb-6 shadow-card hover:shadow-hover hover:border-primary/30 transition-all duration-300 break-inside-avoid">
+      <Quote className="h-7 w-7 text-primary opacity-70 mb-4" aria-hidden />
+      <blockquote className="text-card-foreground/90 leading-relaxed">
+        <p>“{exibido}”</p>
+      </blockquote>
+      {longo && (
+        <button
+          type="button"
+          onClick={() => setExpanded((v) => !v)}
+          aria-expanded={expanded}
+          className="mt-3 text-sm font-medium text-primary hover:underline underline-offset-4 cursor-pointer"
+        >
+          {expanded ? "Mostrar menos" : "Ler depoimento completo"}
+        </button>
+      )}
+      <figcaption className="mt-6 pt-4 border-t border-border text-sm font-semibold text-muted-foreground">
+        {author}
+      </figcaption>
+    </figure>
+  );
+}
