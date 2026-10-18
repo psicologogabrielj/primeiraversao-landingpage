@@ -1,4 +1,5 @@
 import { AnimatedSection } from "./AnimatedSection";
+import { anosDeAtuacao } from "@/lib/experiencia";
 
 export function AboutSection() {
   return (
@@ -20,7 +21,8 @@ export function AboutSection() {
                 <div className="space-y-6 text-card-foreground">
                   <p className="text-lg leading-relaxed">
                     <strong className="text-primary">Bem-vindo(a)!</strong> Me
-                    chamo Gabriel. Sou psicólogo clínico, com 3 anos de atuação,
+                    chamo Gabriel. Sou psicólogo clínico, com {anosDeAtuacao()} anos de
+                    atuação,
                     com experiência em demandas variadas, e dedicado a ajudar
                     pessoas a ganharem real independência sobre sua saúde
                     mental.

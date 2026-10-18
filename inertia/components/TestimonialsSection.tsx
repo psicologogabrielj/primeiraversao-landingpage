@@ -19,7 +19,7 @@ export const TestimonialsSection = () => {
 
   const testimonials = [
     {
-      text: "Acho que o melhor ganho que tive mesmo com pouco tempo de tratamento foi organizar melhor meus pensamentos. E isso acaba me ajudando no dia a dia desde as coisas mías básicas até as mais complexas",
+      text: "Acho que o melhor ganho que tive mesmo com pouco tempo de tratamento foi organizar melhor meus pensamentos. E isso acaba me ajudando no dia a dia desde as coisas mais básicas até as mais complexas",
       author: "V. C.",
     },
     {

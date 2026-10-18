@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { MessageCircle } from "lucide-react";
 import { CiInstagram as Instagram } from "react-icons/ci";
 import { useTrackEvent } from "@/lib/ga";
+import { anosDeAtuacao } from "@/lib/experiencia";
 
 import psychologistPhoto from "@/assets/gabriel.webp";
 
@@ -110,7 +111,7 @@ export function HeroSection() {
               </div>
               <div className="text-center sm:text-left">
                 <p className="text-3xl font-bold text-primary">
-                  {new Date().getFullYear() - 2022}+
+                  {anosDeAtuacao()}+
                 </p>
                 <p className="text-sm sm:text-base text-muted-foreground">
                   Anos de experiência
