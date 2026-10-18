@@ -12,74 +12,31 @@ Uma landing page profissional para psicólogo clínico especializado em atendime
 - **Integração com Instagram** para mostrar conteúdos
 - **Animações suaves** e transições elegantes
 
-## Project info
+## Stack
 
-**URL**: https://lovable.dev/projects/a2bda8ec-a197-464f-8471-d2fc37d871b1
+AdonisJS 7 + Inertia (React 19) com SSR, Tailwind 4. Sem banco de dados.
 
-## How can I edit this code?
+- `inertia/pages/landing.tsx` — a página; seções em `inertia/components/`
+- `resources/views/inertia_layout.edge` — `<head>` com SEO, Open Graph e JSON-LD
+- `public/` — favicons, `robots.txt`, `sitemap.xml`, `llms.txt`
+- `app/controllers/landing_controller.ts` — passa `GA_MEASUREMENT_ID` para a página
 
-There are several ways of editing your application.
+## Rodando localmente
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/a2bda8ec-a197-464f-8471-d2fc37d871b1) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+Requer Node 24+.
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+npm install
+cp .env.example .env
+node ace generate:key
+npm run dev        # http://localhost:3333
 ```
 
-**Edit a file directly in GitHub**
+## Build e deploy
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+`node ace build` gera `build/`; o `Dockerfile` faz build e sobe `node bin/server.js`.
+Deploy na Upuai Cloud (projeto `landing-pages`) a partir deste repositório.
 
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/a2bda8ec-a197-464f-8471-d2fc37d871b1) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Variáveis de produção: `NODE_ENV=production`, `HOST=0.0.0.0`, `PORT`, `APP_KEY`,
+`APP_URL`, `APP_NAME`, `LOG_LEVEL`, `SESSION_DRIVER=cookie`, `TZ` e, opcional,
+`GA_MEASUREMENT_ID` (Google Analytics 4).
