@@ -85,22 +85,21 @@ export const TestimonialsSection = () => {
 };
 
 // Depoimentos longos começam recolhidos: um card de 30 linhas desequilibrava a
-// grade e empurrava o CTA para longe.
+// grade e empurrava o CTA para longe. O recorte é só visual (line-clamp): o
+// texto inteiro vai no HTML do SSR, então o Google lê o depoimento completo.
 const LIMITE = 320;
 
 function TestimonialCard({ text, author }: { text: string; author: string }) {
   const [expanded, setExpanded] = useState(false);
   const longo = text.length > LIMITE;
-  const exibido =
-    longo && !expanded
-      ? `${text.slice(0, text.lastIndexOf(" ", LIMITE))}…`
-      : text;
 
   return (
     <figure className="bg-card border border-border rounded-2xl p-6 mb-6 shadow-card hover:shadow-hover hover:border-primary/30 transition-all duration-300 break-inside-avoid">
       <Quote className="h-7 w-7 text-primary opacity-70 mb-4" aria-hidden />
       <blockquote className="text-card-foreground/90 leading-relaxed">
-        <p>“{exibido}”</p>
+        <p className={longo && !expanded ? "line-clamp-7" : undefined}>
+          “{text}”
+        </p>
       </blockquote>
       {longo && (
         <button

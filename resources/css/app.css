@@ -71,6 +71,11 @@
   html {
     scroll-behavior: smooth;
   }
+
+  /* Links #sobre, #faq... param abaixo da navbar fixa (h-20), com ou sem JS. */
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
 }
 
 @layer utilities {

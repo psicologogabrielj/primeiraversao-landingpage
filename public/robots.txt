@@ -1,22 +1,6 @@
-# Robots.txt - Psicólogo Online Gabriel
-# Permite indexação completa do site pelos motores de busca
-
+# Robots.txt - Psicólogo Online Gabriel Jesus
 User-agent: *
 Allow: /
+Disallow: /health
 
-# Sitemap
 Sitemap: https://gabrieljesuspsicologo.com.br/sitemap.xml
-
-# LLMs (Large Language Models)
-# Informações para IAs como ChatGPT, Claude, etc.
-# https://llmstxt.org/
-Allow: /llms.txt
-
-# Crawl-delay para prevenir sobrecarga
-Crawl-delay: 1
-
-# Bloquear acesso a arquivos de configuração e assets desnecessários
-Disallow: /node_modules/
-Disallow: /*.json$
-Disallow: /*.config.js$
-Disallow: /*.config.ts$

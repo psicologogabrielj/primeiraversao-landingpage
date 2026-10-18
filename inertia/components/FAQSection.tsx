@@ -1,51 +1,16 @@
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { ChevronDown } from "lucide-react";
 import { AnimatedSection } from "./AnimatedSection";
 import { useTrackEvent } from "@/lib/ga";
+import { faqs } from "@/data/faq";
 
+/**
+ * <details>/<summary> nativos em vez do Accordion do Radix: o Radix só monta
+ * a resposta quando o item abre, então o HTML do SSR chegava ao Google sem
+ * nenhuma resposta. Aqui todas vêm no HTML, funciona sem JS, e o atributo
+ * `name` mantém um item aberto por vez, como o accordion fazia.
+ */
 const FAQSection = () => {
   const trackEvent = useTrackEvent();
-
-  const handleQuestionOpen = (question: string) => {
-    trackEvent("FAQ", "Question Opened", question);
-  };
-
-  const faqs = [
-    {
-      question: "Sessões online são seguras?",
-      answer:
-        "Sim, por conta de as chamadas serem realizadas através de plataforma que utiliza criptografia de dados em trânsito e em repouso, proteção contra acesso não autorizado a reuniões. Para estar de acordo com as orientações de privacidade e sigilo colocadas pelo Conselho Federal de Psicologia, as são sessões a partir de um ambiente privado, seguro e utilizando fones de ouvido a todo momento (o paciente é aconselhado a seguir as mesmas orientações).",
-    },
-    {
-      question: "Preciso levar alguma coisa para as consultas?",
-      answer:
-        "Não é obrigatório levar nada para o atendimento. Mas, pensando em melhorar a experiência da sessão, aproveitando o conforto da sua casa e mantendo o sigilo do atendimento, algumas ideias são: trazer um bloco de anotações para insights, trazer uma bebida como um chá ou chocolate quente, manter o ambiente climatizado, estar em um local confortável e privativo, ter um lenço para se uma emoção mais intensa surgir. Evite ter no ambiente estímulos que possam te distrair, como músicas agitadas ou avisos de notificação.",
-    },
-    {
-      question: "Como sei que o tratamento está funcionando?",
-      answer:
-        "Os objetivos terapêuticos, de curto e longo prazo, ajudam a ter uma melhor compreensão do quanto as habilidades desenvolvidas estão permitindo sua evolução para melhora. Além disso, como medida objetiva, é feito ao longo do tratamento um monitoramento do progresso via aplicação de escalas e automonitoramento de comportamentos-alvo relevantes ao tratamento.",
-    },
-    {
-      question: "Sou obrigado a também passar com psiquiatra?",
-      answer:
-        "Não existe obrigatoriedade, porém há quadros em que a consulta com o psiquiatra pode sim ser recomendada para melhorar a evolução do caso, facilitando reduzir o sofrimento psicológico. Porém caso o paciente não queira fazer uso de medicações, é de sua livre escolha deixar de passar por esse tipo de atendimento com o médico psiquiatra.",
-    },
-    {
-      question: "Preciso fazer terapia para sempre?",
-      answer:
-        "Não, pois o processo é pensado baseado em objetivos terapêuticos que auxiliam a direcionar o tratamento, e planejar as intervenções. Assim, de forma colaborativa com cada paciente, as sessões passam de semanais, para quinzenais e, finalmente, chega-se à alta da psicoterapia.",
-    },
-    {
-      question: "Qual o preço das sessões?",
-      answer:
-        "O Conselho Federal de Psicologia não permite que o preço seja usado como forma de divulgação. Por conta disso, não é divulgado o preço no site. Porém, ao entrar em contato diretamente pelo whatsapp, é possível conseguir mais informações sobre preço do plano mensal de atendimento, formas de pagamento, envio de recibo e como funciona o processo de alta da psicoterapia.",
-    },
-  ];
 
   return (
     <section id="faq" className="py-20 bg-background-subtle">
@@ -63,26 +28,30 @@ const FAQSection = () => {
         </AnimatedSection>
 
         <AnimatedSection animation="fade-in-up">
-          <div className="max-w-4xl mx-auto">
-            <Accordion type="single" collapsible className="w-full space-y-4">
-              {faqs.map((faq, index) => (
-                <AccordionItem
-                  key={index}
-                  value={`item-${index}`}
-                  className="bg-card rounded-2xl px-6 border border-border shadow-card hover:border-primary/30 data-[state=open]:border-primary/40 transition-colors duration-300"
-                >
-                  <AccordionTrigger
-                    className="text-left text-base sm:text-lg font-semibold text-foreground hover:no-underline hover:text-primary py-5 sm:py-6 gap-4"
-                    onClick={() => handleQuestionOpen(faq.question)}
-                  >
-                    {faq.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground leading-relaxed pb-6 text-base">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
+          <div className="max-w-4xl mx-auto space-y-4">
+            {faqs.map((faq) => (
+              <details
+                key={faq.question}
+                name="faq"
+                className="group bg-card rounded-2xl px-6 border border-border shadow-card hover:border-primary/30 open:border-primary/40 transition-colors duration-300"
+                onToggle={(e) => {
+                  if (e.currentTarget.open) {
+                    trackEvent("FAQ", "Question Opened", faq.question);
+                  }
+                }}
+              >
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-5 sm:py-6 text-left text-base sm:text-lg font-semibold text-foreground hover:text-primary transition-colors [&::-webkit-details-marker]:hidden">
+                  <h3>{faq.question}</h3>
+                  <ChevronDown
+                    aria-hidden
+                    className="h-5 w-5 shrink-0 text-muted-foreground transition-transform duration-300 group-open:rotate-180"
+                  />
+                </summary>
+                <p className="text-muted-foreground leading-relaxed pb-6 text-base">
+                  {faq.answer}
+                </p>
+              </details>
+            ))}
           </div>
         </AnimatedSection>
       </div>

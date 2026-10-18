@@ -5,6 +5,7 @@ export default function NotFound() {
     <>
       <Head>
         <title>Página não encontrada — Psicólogo Gabriel</title>
+        <meta name="robots" content="noindex" />
       </Head>
       <main className="grid min-h-screen place-items-center bg-background px-6 text-foreground">
         <div className="max-w-[46ch] text-center">

@@ -18,9 +18,16 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
+  // Os itens são <a href="#secao"> (rastreáveis e funcionam sem JS); com JS o
+  // clique vira rolagem suave descontando a navbar fixa.
+  const scrollToSection = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    sectionId: string
+  ) => {
     const element = document.getElementById(sectionId);
     if (element) {
+      event.preventDefault();
+      history.replaceState(null, "", `#${sectionId}`);
       const offset = 80; // Altura da navbar
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
@@ -48,19 +55,20 @@ export function Navbar() {
   ];
 
   return (
-    <nav
+    <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled || isMobileMenuOpen
           ? "bg-background/95 backdrop-blur-md shadow-lg border-b border-border"
           : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-4">
+      <nav aria-label="Principal" className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo/Brand */}
-          <button
-            type="button"
-            onClick={() => {
+          <a
+            href="/"
+            onClick={(event) => {
+              event.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
               trackEvent("Navigation", "Click", "logo");
             }}
@@ -74,20 +82,20 @@ export function Navbar() {
                 Psicólogo CRP 06/171722
               </span>
             </div>
-          </button>
+          </a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <button
+              <a
                 key={link.id}
-                type="button"
-                onClick={() => scrollToSection(link.id)}
+                href={`#${link.id}`}
+                onClick={(event) => scrollToSection(event, link.id)}
                 className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative group cursor-pointer"
               >
                 {link.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300" />
-              </button>
+              </a>
             ))}
 
             <Button
@@ -131,14 +139,14 @@ export function Navbar() {
           <div id="menu-mobile" className="md:hidden py-4 border-t border-border animate-in slide-in-from-top-5 duration-300">
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
-                <button
+                <a
                   key={link.id}
-                  type="button"
-                  onClick={() => scrollToSection(link.id)}
+                  href={`#${link.id}`}
+                  onClick={(event) => scrollToSection(event, link.id)}
                   className="text-left px-4 py-3 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-lg transition-colors cursor-pointer"
                 >
                   {link.label}
-                </button>
+                </a>
               ))}
 
               <div className="px-4">
@@ -162,7 +170,7 @@ export function Navbar() {
             </div>
           </div>
         )}
-      </div>
-    </nav>
+      </nav>
+    </header>
   );
 }

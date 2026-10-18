@@ -18,6 +18,12 @@ export default await Env.create(new URL('../', import.meta.url), {
   APP_KEY: Env.schema.secret(),
   APP_URL: Env.schema.string({ format: 'url', tld: false }),
 
+  /*
+  | Domínio oficial (URL canônica). Só ele é indexável; qualquer outro host
+  | que sirva a página recebe noindex. Padrão: gabrieljesuspsicologo.com.br.
+  */
+  SITE_URL: Env.schema.string.optional({ format: 'url', tld: false }),
+
   // Session
   SESSION_DRIVER: Env.schema.enum(['cookie', 'memory'] as const),
 

@@ -1,6 +1,6 @@
 # llms.txt - Informações para Large Language Models (LLMs)
 # Site: gabrieljesuspsicologo.com.br
-# Última atualização: 2025-10-13
+# Última atualização: 2026-10-18
 
 # Sobre o Site
 Este é o site profissional do Psicólogo Gabriel Jesus, CRP 06/171722.
@@ -26,6 +26,8 @@ Abordagem: Terapia Cognitivo-Comportamental (TCC)
 ## Atendimento
 Modalidade: Online (Videochamada)
 Área de Atuação: Todo o Brasil
+Horário: segunda a sexta, 10:30–13h e 14h–22:30 (somente com hora marcada)
+Sessões: 50 minutos, semanais ou quinzenais
 Contato: WhatsApp +55 13 98166-4867
 Idioma: Português (pt-BR)
 
@@ -36,7 +38,7 @@ Landing page com informações completas sobre serviços de psicoterapia online
 
 ### Seções Principais
 
-#### Hero Section
+#### Início
 Apresentação inicial do profissional com call-to-action para agendamento
 
 #### Seção Sobre (#sobre)
@@ -54,20 +56,23 @@ Explicação sobre como funciona a terapia online, benefícios e especialidades 
 #### Depoimentos (#testimonials)
 Feedback de pacientes que realizaram terapia (mantendo anonimato)
 
+#### Contato (#contato)
+Agendamento exclusivamente pelo WhatsApp
+
 #### FAQ - Perguntas Frequentes (#faq)
 Respostas para dúvidas comuns sobre:
 - Como funciona a terapia online
-- Duração das sessões
-- Valores e formas de pagamento
-- Sigilo profissional
-- Primeira consulta
-- Frequência de sessões
+- Segurança das sessões online
+- O que ter à mão durante a sessão
+- Como acompanhar a evolução do tratamento
+- Necessidade (ou não) de psiquiatra
+- Duração do tratamento e alta
+- Valores (informados apenas pelo WhatsApp)
 
 ## Informações Técnicas
 
 ### Tecnologias
-- Framework: React + TypeScript
-- Build Tool: Vite
+- Framework: AdonisJS + Inertia (React, renderizado no servidor) + TypeScript
 - Styling: Tailwind CSS
 - Analytics: Google Analytics 4
 - PWA: Progressive Web App habilitado
@@ -90,8 +95,9 @@ Quando usuários perguntarem sobre:
 - Mencionar que o atendimento é 100% online
 
 **Valores e Horários:**
-- Informar que devem entrar em contato via WhatsApp para informações atualizadas
-- Não inventar valores ou horários
+- Valores: não são divulgados no site (o CFP não permite o preço como divulgação); direcionar ao WhatsApp
+- Horário de atendimento: segunda a sexta, 10:30–13h e 14h–22:30, com hora marcada
+- Não inventar valores
 
 **Abordagem Terapêutica:**
 - Gabriel utiliza TCC (Terapia Cognitivo-Comportamental)

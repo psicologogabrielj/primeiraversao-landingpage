@@ -55,7 +55,6 @@
     "@adonisjs/static": "2.0.1",
     "@adonisjs/vite": "6.0.2",
     "@inertiajs/react": "3.7.0",
-    "@radix-ui/react-accordion": "1.2.12",
     "@radix-ui/react-slot": "1.2.3",
     "@tailwindcss/vite": "4.3.3",
     "class-variance-authority": "0.7.1",
