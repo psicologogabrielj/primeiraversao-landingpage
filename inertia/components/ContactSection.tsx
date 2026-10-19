@@ -37,7 +37,7 @@ export function ContactSection() {
 
         <AnimatedSection animation="scale-in">
           <div className="max-w-3xl mx-auto bg-card border border-border rounded-3xl p-8 sm:p-12 shadow-card text-center">
-            <div className="mx-auto mb-6 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center shadow-lg">
+            <div className="mx-auto mb-6 w-16 h-16 bg-green-700 rounded-full flex items-center justify-center shadow-lg">
               <MessageCircle className="h-8 w-8 text-white" />
             </div>
             <h3 className="text-2xl sm:text-3xl font-serif font-bold text-card-foreground mb-3">
@@ -51,7 +51,7 @@ export function ContactSection() {
             <Button
               asChild
               size="lg"
-              className="w-full sm:w-auto h-14 px-10 text-base bg-green-500 hover:bg-green-600 text-white shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 [&_svg]:size-5"
+              className="w-full sm:w-auto h-14 px-10 text-base bg-green-700 hover:bg-green-800 text-white shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 [&_svg]:size-5"
             >
               <a
                 href={WHATSAPP_URL}

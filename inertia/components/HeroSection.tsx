@@ -66,7 +66,7 @@ export function HeroSection() {
               <Button
                 asChild
                 size="lg"
-                className="bg-green-500 hover:bg-green-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 [&_svg]:size-5"
+                className="bg-green-700 hover:bg-green-800 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 [&_svg]:size-5"
               >
                 <a
                   href={`https://wa.me/5513981664867?text=${encodeURIComponent(

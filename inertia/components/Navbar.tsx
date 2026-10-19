@@ -101,7 +101,7 @@ export function Navbar() {
             <Button
               asChild
               size="sm"
-              className="bg-green-500 hover:bg-green-600 text-white"
+              className="bg-green-700 hover:bg-green-800 text-white"
             >
               <a
                 href={`https://wa.me/5513981664867?text=${encodeURIComponent(
@@ -152,7 +152,7 @@ export function Navbar() {
               <div className="px-4">
                 <Button
                   asChild
-                  className="w-full bg-green-500 hover:bg-green-600 text-white"
+                  className="w-full bg-green-700 hover:bg-green-800 text-white"
                 >
                   <a
                     href={`https://wa.me/5513981664867?text=${encodeURIComponent(

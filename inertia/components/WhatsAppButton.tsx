@@ -37,7 +37,7 @@ export function WhatsAppButton({
       onMouseLeave={onMouseLeave}
       onClick={onClick}
       className={cn(
-        "fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 inline-flex items-center gap-2 rounded-full bg-green-500 hover:bg-green-600 text-white font-medium shadow-2xl animate-glow transition-all duration-300",
+        "fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 inline-flex items-center gap-2 rounded-full bg-green-700 hover:bg-green-800 text-white font-medium shadow-2xl animate-glow transition-all duration-300",
         "h-14 w-14 justify-center sm:h-12 sm:w-auto sm:px-6",
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
         visible

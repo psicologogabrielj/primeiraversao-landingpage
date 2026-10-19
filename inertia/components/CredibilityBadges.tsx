@@ -43,9 +43,9 @@ export function CredibilityBadges() {
                 <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-3 group-hover:bg-primary/20 transition-colors">
                   <badge.icon className={`h-8 w-8 ${badge.color}`} />
                 </div>
-                <h3 className="text-base font-bold text-foreground mb-1">
+                <p className="text-base font-bold text-foreground mb-1">
                   {badge.title}
-                </h3>
+                </p>
                 <p className="text-sm text-muted-foreground">
                   {badge.description}
                 </p>
