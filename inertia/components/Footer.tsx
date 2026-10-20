@@ -6,25 +6,23 @@ import {
   Instagram,
   Linkedin,
 } from "lucide-react";
-import { useTrackEvent } from "@/lib/ga";
+import { rastrear } from "@/lib/analytics";
 
 export const Footer = () => {
-  const trackEvent = useTrackEvent();
-
   const handlePhoneClick = () => {
-    trackEvent("Footer", "Click", "Phone Number");
+    rastrear("Footer", "Click", "Phone Number");
   };
 
   const handleEmailClick = () => {
-    trackEvent("Footer", "Click", "Email");
+    rastrear("Footer", "Click", "Email");
   };
 
   const handleInstagramClick = () => {
-    trackEvent("Footer", "Click", "Instagram");
+    rastrear("Footer", "Click", "Instagram");
   };
 
   const handleLinkedInClick = () => {
-    trackEvent("Footer", "Click", "LinkedIn");
+    rastrear("Footer", "Click", "LinkedIn");
   };
 
   return (

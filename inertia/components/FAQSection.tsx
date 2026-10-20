@@ -1,6 +1,6 @@
 import { ChevronDown } from "lucide-react";
 import { AnimatedSection } from "./AnimatedSection";
-import { useTrackEvent } from "@/lib/ga";
+import { rastrear } from "@/lib/analytics";
 import { faqs } from "@/data/faq";
 
 /**
@@ -10,8 +10,6 @@ import { faqs } from "@/data/faq";
  * `name` mantém um item aberto por vez, como o accordion fazia.
  */
 const FAQSection = () => {
-  const trackEvent = useTrackEvent();
-
   return (
     <section id="faq" className="py-20 bg-background-subtle">
       <div className="container mx-auto px-4">
@@ -36,7 +34,7 @@ const FAQSection = () => {
                 className="group bg-card rounded-2xl px-6 border border-border shadow-card hover:border-primary/30 open:border-primary/40 transition-colors duration-300"
                 onToggle={(e) => {
                   if (e.currentTarget.open) {
-                    trackEvent("FAQ", "Question Opened", faq.question);
+                    rastrear("FAQ", "Question Opened", faq.question);
                   }
                 }}
               >

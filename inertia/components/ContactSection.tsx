@@ -1,19 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Phone, Globe, Clock, Lock } from "lucide-react";
 import { AnimatedSection } from "./AnimatedSection";
-import { useTrackEvent } from "@/lib/ga";
-
-const WHATSAPP_URL = `https://wa.me/5513981664867?text=${encodeURIComponent(
-  "Olá! Gostaria de agendar uma consulta."
-)}`;
+import { WhatsAppLink } from "./WhatsAppLink";
 
 export function ContactSection() {
-  const trackEvent = useTrackEvent();
-
-  const handleWhatsAppClick = () => {
-    trackEvent("WhatsApp Button", "Click", "Contact Section");
-  };
-
   const infos = [
     { icon: Phone, label: "Telefone / WhatsApp", value: "+55 (13) 98166-4867" },
     { icon: Globe, label: "Atendimento", value: "100% online, todo o Brasil" },
@@ -53,15 +43,10 @@ export function ContactSection() {
               size="lg"
               className="w-full sm:w-auto h-14 px-10 text-base bg-green-700 hover:bg-green-800 text-white shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 [&_svg]:size-5"
             >
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={handleWhatsAppClick}
-              >
+              <WhatsAppLink origem="Contact Section">
                 <MessageCircle />
                 Conversar no WhatsApp
-              </a>
+              </WhatsAppLink>
             </Button>
 
             <ul className="mt-10 pt-8 border-t border-border grid gap-6 sm:grid-cols-3 text-left sm:text-center">

@@ -22,6 +22,21 @@
 
     <link type="text/plain" rel="author" href="/humans.txt" />
 
+    {{-- gtag.js do GA4 e do Google Ads, só na página que passa gtagIds (a
+         landing). No HTML do SSR, e não via React, para a visita contar mesmo
+         que a hidratação falhe. --}}
+    @if(gtagIds?.length)
+      <script async src="https://www.googletagmanager.com/gtag/js?id={{ gtagIds[0] }}"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        @each(id in gtagIds)
+        gtag('config', '{{ id }}');
+        @end
+      </script>
+    @end
+
     @viteReactRefresh()
     @vite(['inertia/app/app.tsx', 'resources/css/app.css'])
     @inertiaHead()

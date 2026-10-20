@@ -11,71 +11,28 @@ import { ContactSection } from "@/components/ContactSection";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Footer } from "@/components/Footer";
 import { Head } from "@inertiajs/react";
-import { useAnalyticsInitialize, useTrackEvent } from "@/lib/ga";
+import { iniciarAnalytics, type AnalyticsConfig } from "@/lib/analytics";
 import { DESCRICAO, TITULO, jsonLd } from "@/lib/seo";
-import { useScrollDepthTracking } from "@/hooks/useScrollTracking";
+import {
+  useScrollDepthTracking,
+  useSectionVisibilityTracking,
+} from "@/hooks/useScrollTracking";
 import { useEffect } from "react";
-import type { GoogleAdsConfig, PostHogConfig } from "@/stores/analyticsStore";
+
+const SECOES_RASTREADAS = ["sobre", "therapy", "testimonials", "faq"];
 
 type Props = {
-  gaId: string;
-  googleAds: GoogleAdsConfig;
-  posthog: PostHogConfig;
+  analytics: AnalyticsConfig;
   siteUrl: string;
   indexavel: boolean;
 };
 
-const Landing = ({ gaId, googleAds, posthog, siteUrl, indexavel }: Props) => {
-  useAnalyticsInitialize(gaId, googleAds, posthog);
-  const trackEvent = useTrackEvent();
-
-  // Track scroll depth
+const Landing = ({ analytics, siteUrl, indexavel }: Props) => {
+  // A config chega como prop do servidor, não do build do Vite: trocar um ID
+  // não exige rebuild e o SSR não toca em window.
+  useEffect(() => iniciarAnalytics(analytics), [analytics]);
   useScrollDepthTracking();
-
-  // Track section visibility
-  useEffect(() => {
-    const sections = ["sobre", "therapy", "testimonials", "faq"];
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            const sectionName = entry.target.id;
-            trackEvent("Section Visibility", "Viewed", sectionName);
-          }
-        }
-      },
-      { threshold: 0.3 }
-    );
-
-    for (const sectionId of sections) {
-      const section = document.getElementById(sectionId);
-      if (section) {
-        observer.observe(section);
-      }
-    }
-
-    return () => {
-      for (const sectionId of sections) {
-        const section = document.getElementById(sectionId);
-        if (section) {
-          observer.unobserve(section);
-        }
-      }
-    };
-  }, [trackEvent]);
-
-  const handleWhatsAppHover = () => {
-    trackEvent("WhatsApp Button", "Hover", "Floating Button");
-  };
-
-  const handleWhatsAppLeave = () => {
-    trackEvent("WhatsApp Button", "Leave", "Floating Button");
-  };
-
-  const handleWhatsAppClick = () => {
-    trackEvent("WhatsApp Button", "Click", "Floating Button");
-  };
+  useSectionVisibilityTracking(SECOES_RASTREADAS);
 
   return (
     <div className="min-h-screen bg-background">
@@ -131,11 +88,7 @@ const Landing = ({ gaId, googleAds, posthog, siteUrl, indexavel }: Props) => {
       </main>
 
       <Footer />
-      <WhatsAppButton
-        onMouseEnter={handleWhatsAppHover}
-        onMouseLeave={handleWhatsAppLeave}
-        onClick={handleWhatsAppClick}
-      />
+      <WhatsAppButton />
     </div>
   );
 };

@@ -54,9 +54,9 @@ export default await Env.create(new URL('../', import.meta.url), {
   | PostHog
   |----------------------------------------------------------------------
   |
-  | Project API key (phc_...) e host da região (us.i.posthog.com ou
-  | eu.i.posthog.com). Sem a key, o PostHog não é carregado.
+  | Project API key (phc_...) e host da região (padrão us.i.posthog.com,
+  | ver config/analytics.ts). Sem a key, o PostHog não é carregado.
   */
   POSTHOG_KEY: Env.schema.string.optional(),
-  POSTHOG_HOST: Env.schema.string.optional(),
+  POSTHOG_HOST: Env.schema.string.optional({ format: 'url', tld: false }),
 })

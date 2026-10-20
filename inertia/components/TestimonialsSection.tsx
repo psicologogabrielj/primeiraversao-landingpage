@@ -2,21 +2,9 @@ import { useState } from "react";
 import { Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AnimatedSection } from "./AnimatedSection";
-import { useTrackEvent } from "@/lib/ga";
+import { WhatsAppLink } from "./WhatsAppLink";
 
 export const TestimonialsSection = () => {
-  const trackEvent = useTrackEvent();
-
-  // O link é um <a> comum (abre o WhatsApp em nova aba); o clique só registra
-  // o evento no GA.
-  const handleWhatsAppClick = () => {
-    trackEvent(
-      "WhatsApp Button",
-      "Click",
-      "Testimonials Section - Começar Tratamento"
-    );
-  };
-
   const testimonials = [
     {
       text: "Acho que o melhor ganho que tive mesmo com pouco tempo de tratamento foi organizar melhor meus pensamentos. E isso acaba me ajudando no dia a dia desde as coisas mais básicas até as mais complexas",
@@ -67,16 +55,12 @@ export const TestimonialsSection = () => {
             size="lg"
             className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-glow hover:shadow-hover hover:scale-105 transition-all duration-300"
           >
-            <a
-              href={`https://wa.me/5513981664867?text=${encodeURIComponent(
-                "Olá! Gostaria de começar meu tratamento psicológico online."
-              )}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={handleWhatsAppClick}
+            <WhatsAppLink
+              origem="Testimonials Section - Começar Tratamento"
+              mensagem="Olá! Gostaria de começar meu tratamento psicológico online."
             >
               Começar Tratamento
-            </a>
+            </WhatsAppLink>
           </Button>
         </div>
       </div>

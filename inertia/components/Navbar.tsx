@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, MessageCircle } from "lucide-react";
-import { useTrackEvent } from "@/lib/ga";
+import { rastrear } from "@/lib/analytics";
+import { WhatsAppLink } from "@/components/WhatsAppLink";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const trackEvent = useTrackEvent();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,12 +38,8 @@ export function Navbar() {
       });
 
       setIsMobileMenuOpen(false);
-      trackEvent("Navigation", "Click", sectionId);
+      rastrear("Navigation", "Click", sectionId);
     }
-  };
-
-  const handleWhatsAppClick = () => {
-    trackEvent("WhatsApp Button", "Click", "Navbar");
   };
 
   const navLinks = [
@@ -70,7 +66,7 @@ export function Navbar() {
             onClick={(event) => {
               event.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
-              trackEvent("Navigation", "Click", "logo");
+              rastrear("Navigation", "Click", "logo");
             }}
             className="flex items-center gap-2 group cursor-pointer"
           >
@@ -103,17 +99,10 @@ export function Navbar() {
               size="sm"
               className="bg-green-700 hover:bg-green-800 text-white"
             >
-              <a
-                href={`https://wa.me/5513981664867?text=${encodeURIComponent(
-                  "Olá! Gostaria de agendar uma consulta."
-                )}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={handleWhatsAppClick}
-              >
+              <WhatsAppLink origem="Navbar">
                 <MessageCircle />
                 Agendar
-              </a>
+              </WhatsAppLink>
             </Button>
           </div>
 
@@ -154,17 +143,10 @@ export function Navbar() {
                   asChild
                   className="w-full bg-green-700 hover:bg-green-800 text-white"
                 >
-                  <a
-                    href={`https://wa.me/5513981664867?text=${encodeURIComponent(
-                      "Olá! Gostaria de agendar uma consulta."
-                    )}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={handleWhatsAppClick}
-                  >
+                  <WhatsAppLink origem="Navbar">
                     <MessageCircle />
                     Agendar Consulta
-                  </a>
+                  </WhatsAppLink>
                 </Button>
               </div>
             </div>

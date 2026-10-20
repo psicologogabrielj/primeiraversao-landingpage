@@ -1,38 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle } from "lucide-react";
 import { CiInstagram as Instagram } from "react-icons/ci";
-import { useTrackEvent } from "@/lib/ga";
+import { rastrear } from "@/lib/analytics";
+import { WhatsAppLink } from "@/components/WhatsAppLink";
 import { anosDeAtuacao } from "@/lib/experiencia";
 
 import psychologistPhoto from "@/assets/gabriel.webp";
 
 export function HeroSection() {
-  const trackEvent = useTrackEvent();
-
-  const handleWhatsAppHover = () => {
-    trackEvent("WhatsApp Button", "Hover", "Hero Section");
-  };
-
-  const handleWhatsAppLeave = () => {
-    trackEvent("WhatsApp Button", "Leave", "Hero Section");
-  };
-
-  const handleWhatsAppClick = () => {
-    trackEvent("WhatsApp Button", "Click", "Hero Section");
-  };
-
-  const handleInstagramHover = () => {
-    trackEvent("Instagram Button", "Hover", "Hero Section");
-  };
-
-  const handleInstagramLeave = () => {
-    trackEvent("Instagram Button", "Leave", "Hero Section");
-  };
-
-  const handleInstagramClick = () => {
-    trackEvent("Instagram Button", "Click", "Hero Section");
-  };
-
   return (
     <section
       id="hero"
@@ -68,19 +43,10 @@ export function HeroSection() {
                 size="lg"
                 className="bg-green-700 hover:bg-green-800 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 [&_svg]:size-5"
               >
-                <a
-                  href={`https://wa.me/5513981664867?text=${encodeURIComponent(
-                    "Olá! Gostaria de agendar uma consulta."
-                  )}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onMouseEnter={handleWhatsAppHover}
-                  onMouseLeave={handleWhatsAppLeave}
-                  onClick={handleWhatsAppClick}
-                >
+                <WhatsAppLink origem="Hero Section">
                   <MessageCircle />
                   Agendar Consulta
-                </a>
+                </WhatsAppLink>
               </Button>
 
               <Button
@@ -93,9 +59,9 @@ export function HeroSection() {
                   href="https://www.instagram.com/gabrieljpsi/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  onMouseEnter={handleInstagramHover}
-                  onMouseLeave={handleInstagramLeave}
-                  onClick={handleInstagramClick}
+                  onClick={() =>
+                    rastrear("Instagram Button", "Click", "Hero Section")
+                  }
                 >
                   <Instagram />
                   Meu Instagram

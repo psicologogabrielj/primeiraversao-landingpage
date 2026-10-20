@@ -1,5 +1,6 @@
 import type { HttpContext } from '@adonisjs/core/http'
 import env from '#start/env'
+import analyticsConfig from '#config/analytics'
 
 /**
  * Domínio oficial do site: a URL canônica de tudo (canonical, og:url, JSON-LD).
@@ -20,20 +21,14 @@ const indexavel = (hostname: string | null) =>
 
 export default class LandingController {
   async show({ inertia, request }: HttpContext) {
-    return inertia.render('landing', {
-      // Os IDs de analytics vivem em env para trocar sem novo build. Vazios,
-      // GA/Ads/PostHog não são inicializados.
-      gaId: env.get('GA_MEASUREMENT_ID', ''),
-      googleAds: {
-        id: env.get('GOOGLE_ADS_ID', ''),
-        conversion: env.get('GOOGLE_ADS_CONVERSION', ''),
+    return inertia.render(
+      'landing',
+      {
+        analytics: analyticsConfig.cliente,
+        siteUrl: siteUrl(),
+        indexavel: indexavel(request.hostname()),
       },
-      posthog: {
-        key: env.get('POSTHOG_KEY', ''),
-        host: env.get('POSTHOG_HOST', 'https://us.i.posthog.com'),
-      },
-      siteUrl: siteUrl(),
-      indexavel: indexavel(request.hostname()),
-    })
+      { gtagIds: analyticsConfig.gtagIds }
+    )
   }
 }
