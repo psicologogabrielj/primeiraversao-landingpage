@@ -6,7 +6,8 @@
  * build com todo o analytics ligado e confere que:
  *   - a página continua de pé depois de hidratar, sem erro de JS;
  *   - o clique no WhatsApp dispara a conversão do Google Ads;
- *   - o PostHog envia eventos.
+ *   - o PostHog envia eventos;
+ *   - o banner de cookies começa negando e o "Aceitar" libera e persiste.
  *
  * Uso: npm run build && npm run test:smoke
  * Chrome: CHROME_PATH (padrão /usr/bin/google-chrome).
@@ -102,6 +103,29 @@ try {
   )
   verificar(conversoes.includes(CONVERSAO), 'o clique no WhatsApp dispara a conversão do Ads')
   verificar(pedidosPostHog.length > 0, 'o PostHog envia eventos')
+
+  const consentimentos = () =>
+    pagina.evaluate(() =>
+      window.dataLayer
+        .map((comando) => Array.from(comando))
+        .filter(([tipo]) => tipo === 'consent')
+        .map(([, acao, estado]) => `${acao}:${estado.ad_storage}`)
+    )
+  const banner = 'section[aria-label="Aviso de cookies"]'
+  verificar((await consentimentos())[0] === 'default:denied', 'cookies negados até a escolha')
+  verificar(Boolean(await pagina.$(banner)), 'o banner de cookies aparece')
+
+  const [aceitar] = await pagina.$$(`xpath/.//section[@aria-label="Aviso de cookies"]//button[.="Aceitar"]`)
+  await aceitar.click()
+  verificar((await consentimentos()).includes('update:granted'), 'o Aceitar libera os cookies')
+  verificar(!(await pagina.$(banner)), 'o banner some depois da escolha')
+
+  await pagina.reload({ waitUntil: 'networkidle0' })
+  await esperar(500)
+  verificar(
+    (await consentimentos())[0] === 'default:granted' && !(await pagina.$(banner)),
+    'a escolha vale na próxima visita'
+  )
 } finally {
   await navegador.close()
   servidor.kill()

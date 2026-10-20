@@ -9,6 +9,7 @@ import { FAQSection } from "@/components/FAQSection";
 import { ContactSection } from "@/components/ContactSection";
 
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { CookieBanner } from "@/components/CookieBanner";
 import { Footer } from "@/components/Footer";
 import { Head } from "@inertiajs/react";
 import { iniciarAnalytics, type AnalyticsConfig } from "@/lib/analytics";
@@ -89,6 +90,7 @@ const Landing = ({ analytics, siteUrl, indexavel }: Props) => {
 
       <Footer />
       <WhatsAppButton />
+      <CookieBanner />
     </div>
   );
 };

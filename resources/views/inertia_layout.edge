@@ -28,11 +28,26 @@
          O gtag.js pesa ~150 KB e trava a página por ~100 ms, então só baixa
          na primeira interação ou 4 s depois do load. Até lá os comandos ficam
          na fila do dataLayer — nada se perde, nem a conversão de um clique
-         rápido. --}}
+         rápido.
+         LGPD (Consent Mode): sem o "Aceitar" do banner, o Google não grava
+         cookie e só recebe sinais anônimos — a visita ainda conta. A chave
+         do localStorage é a mesma de inertia/lib/analytics.ts. --}}
     @if(gtagIds?.length)
       <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
+
+        var consentimento = 'denied';
+        try {
+          if (localStorage.getItem('consentimento-cookies') === 'aceito') consentimento = 'granted';
+        } catch (e) {}
+        gtag('consent', 'default', {
+          ad_storage: consentimento,
+          ad_user_data: consentimento,
+          ad_personalization: consentimento,
+          analytics_storage: consentimento,
+        });
+
         gtag('js', new Date());
         @each(id in gtagIds)
         gtag('config', '{{ id }}');

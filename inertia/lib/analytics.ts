@@ -38,6 +38,7 @@ export function iniciarAnalytics(config: AnalyticsConfig) {
         defaults: "2025-05-24",
         person_profiles: "identified_only",
         disable_surveys: true,
+        persistence: persistenciaPostHog(consentimentoSalvo()),
       });
       for (const [evento, propriedades] of fila.splice(0)) {
         cliente.capture(evento, propriedades);
@@ -75,6 +76,49 @@ export function rastrearCliqueWhatsApp(origem: string) {
   if (adsConversion) {
     window.gtag?.("event", "conversion", { send_to: adsConversion });
   }
+}
+
+// LGPD: sem o "Aceitar" do banner, nada vai para cookie/localStorage. O
+// Google recebe só sinais anônimos (Consent Mode, ver o layout) e o PostHog
+// guarda o visitante só na memória da aba — as visitas e os cliques ainda
+// contam, mas quem volta aparece como pessoa nova.
+
+/** Mesma chave lida pelo script do gtag no layout. */
+const CHAVE_CONSENTIMENTO = "consentimento-cookies";
+
+export type Consentimento = "aceito" | "recusado";
+
+export function consentimentoSalvo(): Consentimento | null {
+  try {
+    const valor = localStorage.getItem(CHAVE_CONSENTIMENTO);
+    return valor === "aceito" || valor === "recusado" ? valor : null;
+  } catch {
+    return null;
+  }
+}
+
+export function definirConsentimento(consentimento: Consentimento) {
+  try {
+    localStorage.setItem(CHAVE_CONSENTIMENTO, consentimento);
+  } catch {
+    // Sem localStorage (aba anônima restrita): vale só para esta visita.
+  }
+
+  const estado = consentimento === "aceito" ? "granted" : "denied";
+  window.gtag?.("consent", "update", {
+    ad_storage: estado,
+    ad_user_data: estado,
+    ad_personalization: estado,
+    analytics_storage: estado,
+  });
+
+  semQuebrar(() =>
+    posthog?.set_config({ persistence: persistenciaPostHog(consentimento) })
+  );
+}
+
+function persistenciaPostHog(consentimento: Consentimento | null) {
+  return consentimento === "aceito" ? "localStorage+cookie" : "memory";
 }
 
 function quandoOcioso(fn: () => void) {
