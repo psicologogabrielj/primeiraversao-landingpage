@@ -36,4 +36,15 @@ export default await Env.create(new URL('../', import.meta.url), {
   | na página — nada é carregado de terceiros sem o ID confirmado.
   */
   GA_MEASUREMENT_ID: Env.schema.string.optional(),
+
+  /*
+  |----------------------------------------------------------------------
+  | PostHog
+  |----------------------------------------------------------------------
+  |
+  | Project API key (phc_...) e host da região (us.i.posthog.com ou
+  | eu.i.posthog.com). Sem a key, o PostHog não é carregado.
+  */
+  POSTHOG_KEY: Env.schema.string.optional(),
+  POSTHOG_HOST: Env.schema.string.optional(),
 })

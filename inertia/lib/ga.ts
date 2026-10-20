@@ -1,16 +1,14 @@
 import { useEffect } from "react";
-import { useAnalyticsStore } from "@/stores/analyticsStore";
+import { useAnalyticsStore, type PostHogConfig } from "@/stores/analyticsStore";
 
-// O ID do GA chega como prop do servidor (GA_MEASUREMENT_ID), não mais do
-// build do Vite: trocar o ID não exige rebuild e o SSR não toca em window.
-export function useGAInitialize(gaId: string) {
+// Os IDs chegam como prop do servidor (GA_MEASUREMENT_ID, POSTHOG_KEY), não
+// do build do Vite: trocar um ID não exige rebuild e o SSR não toca em window.
+export function useAnalyticsInitialize(gaId: string, posthog: PostHogConfig) {
   const initialize = useAnalyticsStore((state) => state.initialize);
 
   useEffect(() => {
-    if (gaId) {
-      initialize(gaId);
-    }
-  }, [gaId, initialize]);
+    initialize(gaId, posthog);
+  }, [gaId, posthog.key, posthog.host, initialize]);
 }
 
 // Hook para rastrear eventos personalizados

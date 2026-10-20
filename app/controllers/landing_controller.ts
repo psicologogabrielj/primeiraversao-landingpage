@@ -21,9 +21,13 @@ const indexavel = (hostname: string | null) =>
 export default class LandingController {
   async show({ inertia, request }: HttpContext) {
     return inertia.render('landing', {
-      // O ID do Analytics vive em env para trocar sem novo build. Vazio, o GA
-      // não é inicializado.
+      // Os IDs de analytics vivem em env para trocar sem novo build. Vazios,
+      // o GA/PostHog não são inicializados.
       gaId: env.get('GA_MEASUREMENT_ID', ''),
+      posthog: {
+        key: env.get('POSTHOG_KEY', ''),
+        host: env.get('POSTHOG_HOST', 'https://us.i.posthog.com'),
+      },
       siteUrl: siteUrl(),
       indexavel: indexavel(request.hostname()),
     })

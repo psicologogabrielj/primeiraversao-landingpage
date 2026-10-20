@@ -1,10 +1,13 @@
 import { create } from "zustand";
 import ReactGA from "react-ga4";
+import posthog from "posthog-js";
+
+export type PostHogConfig = { key: string; host: string };
 
 interface AnalyticsStore {
-  isInitialized: boolean;
-  gaId: string | undefined;
-  initialize: (gaId: string) => void;
+  gaReady: boolean;
+  posthogReady: boolean;
+  initialize: (gaId: string, posthogConfig: PostHogConfig) => void;
   trackEvent: (
     category: string,
     action: string,
@@ -14,36 +17,37 @@ interface AnalyticsStore {
 }
 
 export const useAnalyticsStore = create<AnalyticsStore>((set, get) => ({
-  isInitialized: false,
-  gaId: undefined,
+  gaReady: false,
+  posthogReady: false,
 
-  initialize: (gaId: string) => {
-    const { isInitialized } = get();
+  // Cada ferramenta liga sozinha: só o GA, só o PostHog, os dois ou nenhum.
+  initialize: (gaId, posthogConfig) => {
+    const { gaReady, posthogReady } = get();
 
-    if (!isInitialized && gaId) {
+    if (!gaReady && gaId) {
       ReactGA.initialize(gaId);
-      set({ isInitialized: true, gaId });
-      console.log("Google Analytics initialized with ID:", gaId);
+      set({ gaReady: true });
+    }
+
+    if (!posthogReady && posthogConfig.key) {
+      posthog.init(posthogConfig.key, {
+        api_host: posthogConfig.host,
+        defaults: "2025-05-24",
+        person_profiles: "identified_only",
+      });
+      set({ posthogReady: true });
     }
   },
 
+  trackEvent: (category, action, label, value) => {
+    const { gaReady, posthogReady } = get();
 
-  trackEvent: (
-    category: string,
-    action: string,
-    label?: string,
-    value?: number
-  ) => {
-    const { isInitialized } = get();
+    if (gaReady) {
+      ReactGA.event({ category, action, label, value });
+    }
 
-    if (isInitialized) {
-      ReactGA.event({
-        category,
-        action,
-        label,
-        value,
-      });
-      console.log("Event tracked:", { category, action, label, value });
+    if (posthogReady) {
+      posthog.capture(`${category} ${action}`, { label, value });
     }
   },
 }));

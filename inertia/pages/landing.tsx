@@ -11,19 +11,21 @@ import { ContactSection } from "@/components/ContactSection";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Footer } from "@/components/Footer";
 import { Head } from "@inertiajs/react";
-import { useGAInitialize, useTrackEvent } from "@/lib/ga";
+import { useAnalyticsInitialize, useTrackEvent } from "@/lib/ga";
 import { DESCRICAO, TITULO, jsonLd } from "@/lib/seo";
 import { useScrollDepthTracking } from "@/hooks/useScrollTracking";
 import { useEffect } from "react";
+import type { PostHogConfig } from "@/stores/analyticsStore";
 
 type Props = {
   gaId: string;
+  posthog: PostHogConfig;
   siteUrl: string;
   indexavel: boolean;
 };
 
-const Landing = ({ gaId, siteUrl, indexavel }: Props) => {
-  useGAInitialize(gaId);
+const Landing = ({ gaId, posthog, siteUrl, indexavel }: Props) => {
+  useAnalyticsInitialize(gaId, posthog);
   const trackEvent = useTrackEvent();
 
   // Track scroll depth
