@@ -39,6 +39,18 @@ export default await Env.create(new URL('../', import.meta.url), {
 
   /*
   |----------------------------------------------------------------------
+  | Google Ads
+  |----------------------------------------------------------------------
+  |
+  | ID da tag (AW-XXXXXXXXX) e o send_to da conversão de clique no WhatsApp
+  | (AW-XXXXXXXXX/rótulo). Sem o send_to, a tag carrega mas não registra
+  | conversão.
+  */
+  GOOGLE_ADS_ID: Env.schema.string.optional(),
+  GOOGLE_ADS_CONVERSION: Env.schema.string.optional(),
+
+  /*
+  |----------------------------------------------------------------------
   | PostHog
   |----------------------------------------------------------------------
   |

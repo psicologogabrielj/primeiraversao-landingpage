@@ -2,12 +2,18 @@ import { create } from "zustand";
 import ReactGA from "react-ga4";
 import posthog from "posthog-js";
 
+export type GoogleAdsConfig = { id: string; conversion: string };
 export type PostHogConfig = { key: string; host: string };
 
 interface AnalyticsStore {
-  gaReady: boolean;
+  gtagReady: boolean;
+  adsConversion: string;
   posthogReady: boolean;
-  initialize: (gaId: string, posthogConfig: PostHogConfig) => void;
+  initialize: (
+    gaId: string,
+    googleAds: GoogleAdsConfig,
+    posthogConfig: PostHogConfig
+  ) => void;
   trackEvent: (
     category: string,
     action: string,
@@ -17,16 +23,19 @@ interface AnalyticsStore {
 }
 
 export const useAnalyticsStore = create<AnalyticsStore>((set, get) => ({
-  gaReady: false,
+  gtagReady: false,
+  adsConversion: "",
   posthogReady: false,
 
-  // Cada ferramenta liga sozinha: só o GA, só o PostHog, os dois ou nenhum.
-  initialize: (gaId, posthogConfig) => {
-    const { gaReady, posthogReady } = get();
+  // Cada ferramenta liga sozinha, conforme o que estiver configurado. GA e
+  // Google Ads dividem a mesma gtag.js.
+  initialize: (gaId, googleAds, posthogConfig) => {
+    const { gtagReady, posthogReady } = get();
 
-    if (!gaReady && gaId) {
-      ReactGA.initialize(gaId);
-      set({ gaReady: true });
+    const tagIds = [gaId, googleAds.id].filter(Boolean);
+    if (!gtagReady && tagIds.length > 0) {
+      ReactGA.initialize(tagIds.map((trackingId) => ({ trackingId })));
+      set({ gtagReady: true, adsConversion: googleAds.conversion });
     }
 
     if (!posthogReady && posthogConfig.key) {
@@ -40,10 +49,15 @@ export const useAnalyticsStore = create<AnalyticsStore>((set, get) => ({
   },
 
   trackEvent: (category, action, label, value) => {
-    const { gaReady, posthogReady } = get();
+    const { gtagReady, adsConversion, posthogReady } = get();
 
-    if (gaReady) {
+    if (gtagReady) {
       ReactGA.event({ category, action, label, value });
+
+      // Todo botão de WhatsApp passa por aqui: o clique é a conversão do Ads.
+      if (adsConversion && category === "WhatsApp Button" && action === "Click") {
+        ReactGA.gtag("event", "conversion", { send_to: adsConversion });
+      }
     }
 
     if (posthogReady) {

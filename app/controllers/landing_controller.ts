@@ -22,8 +22,12 @@ export default class LandingController {
   async show({ inertia, request }: HttpContext) {
     return inertia.render('landing', {
       // Os IDs de analytics vivem em env para trocar sem novo build. Vazios,
-      // o GA/PostHog não são inicializados.
+      // GA/Ads/PostHog não são inicializados.
       gaId: env.get('GA_MEASUREMENT_ID', ''),
+      googleAds: {
+        id: env.get('GOOGLE_ADS_ID', ''),
+        conversion: env.get('GOOGLE_ADS_CONVERSION', ''),
+      },
       posthog: {
         key: env.get('POSTHOG_KEY', ''),
         host: env.get('POSTHOG_HOST', 'https://us.i.posthog.com'),

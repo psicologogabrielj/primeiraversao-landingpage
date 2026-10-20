@@ -15,17 +15,18 @@ import { useAnalyticsInitialize, useTrackEvent } from "@/lib/ga";
 import { DESCRICAO, TITULO, jsonLd } from "@/lib/seo";
 import { useScrollDepthTracking } from "@/hooks/useScrollTracking";
 import { useEffect } from "react";
-import type { PostHogConfig } from "@/stores/analyticsStore";
+import type { GoogleAdsConfig, PostHogConfig } from "@/stores/analyticsStore";
 
 type Props = {
   gaId: string;
+  googleAds: GoogleAdsConfig;
   posthog: PostHogConfig;
   siteUrl: string;
   indexavel: boolean;
 };
 
-const Landing = ({ gaId, posthog, siteUrl, indexavel }: Props) => {
-  useAnalyticsInitialize(gaId, posthog);
+const Landing = ({ gaId, googleAds, posthog, siteUrl, indexavel }: Props) => {
+  useAnalyticsInitialize(gaId, googleAds, posthog);
   const trackEvent = useTrackEvent();
 
   // Track scroll depth
