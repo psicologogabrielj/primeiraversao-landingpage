@@ -24,9 +24,12 @@
 
     {{-- gtag.js do GA4 e do Google Ads, só na página que passa gtagIds (a
          landing). No HTML do SSR, e não via React, para a visita contar mesmo
-         que a hidratação falhe. --}}
+         que a hidratação falhe.
+         O gtag.js pesa ~150 KB e trava a página por ~100 ms, então só baixa
+         na primeira interação ou 4 s depois do load. Até lá os comandos ficam
+         na fila do dataLayer — nada se perde, nem a conversão de um clique
+         rápido. --}}
     @if(gtagIds?.length)
-      <script async src="https://www.googletagmanager.com/gtag/js?id={{ gtagIds[0] }}"></script>
       <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
@@ -34,6 +37,23 @@
         @each(id in gtagIds)
         gtag('config', '{{ id }}');
         @end
+
+        (function () {
+          var gatilhos = ['scroll', 'pointerdown', 'keydown', 'touchstart'];
+          function carregar() {
+            if (carregar.feito) return;
+            carregar.feito = true;
+            gatilhos.forEach(function (g) { removeEventListener(g, carregar); });
+            var script = document.createElement('script');
+            script.async = true;
+            script.src = 'https://www.googletagmanager.com/gtag/js?id={{ gtagIds[0] }}';
+            document.head.appendChild(script);
+          }
+          gatilhos.forEach(function (g) {
+            addEventListener(g, carregar, { once: true, passive: true });
+          });
+          addEventListener('load', function () { setTimeout(carregar, 4000); });
+        })();
       </script>
     @end
 

@@ -1,6 +1,6 @@
-import posthog from "posthog-js";
+import type { PostHog } from "posthog-js";
 
-// O gtag.js (GA4 e Google Ads) vem do layout, no HTML do SSR. Este módulo só
+// O gtag.js (GA4 e Google Ads) vem do layout, no HTML do SSR. Este módulo
 // liga o PostHog e despacha os eventos para quem estiver configurado.
 
 /** Vem do servidor, montado em config/analytics.ts. */
@@ -17,20 +17,34 @@ declare global {
 }
 
 let adsConversion = "";
-let posthogLigado = false;
+
+// O posthog-js tem ~150 KB: sai do bundle da página e só carrega com o
+// navegador ocioso. Eventos de antes disso esperam na fila.
+let posthog: PostHog | null = null;
+let posthogPendente = false;
+const fila: [evento: string, propriedades: Record<string, unknown>][] = [];
 
 export function iniciarAnalytics(config: AnalyticsConfig) {
   adsConversion = config.adsConversion;
 
-  if (posthogLigado || !config.posthog.key) return;
-  posthogLigado = true;
-  semQuebrar(() =>
-    posthog.init(config.posthog.key, {
-      api_host: config.posthog.host,
-      defaults: "2025-05-24",
-      person_profiles: "identified_only",
-    })
-  );
+  if (posthog || posthogPendente || !config.posthog.key) return;
+  posthogPendente = true;
+
+  quandoOcioso(async () => {
+    const { default: cliente } = await import("posthog-js");
+    semQuebrar(() => {
+      cliente.init(config.posthog.key, {
+        api_host: config.posthog.host,
+        defaults: "2025-05-24",
+        person_profiles: "identified_only",
+        disable_surveys: true,
+      });
+      for (const [evento, propriedades] of fila.splice(0)) {
+        cliente.capture(evento, propriedades);
+      }
+      posthog = cliente;
+    });
+  });
 }
 
 export function rastrear(
@@ -45,10 +59,12 @@ export function rastrear(
     value: valor,
   });
 
-  if (posthogLigado) {
-    semQuebrar(() =>
-      posthog.capture(`${categoria} ${acao}`, { label: rotulo, value: valor })
-    );
+  const evento = `${categoria} ${acao}`;
+  const propriedades = { label: rotulo, value: valor };
+  if (posthog) {
+    semQuebrar(() => posthog?.capture(evento, propriedades));
+  } else if (posthogPendente) {
+    fila.push([evento, propriedades]);
   }
 }
 
@@ -58,6 +74,14 @@ export function rastrearCliqueWhatsApp(origem: string) {
 
   if (adsConversion) {
     window.gtag?.("event", "conversion", { send_to: adsConversion });
+  }
+}
+
+function quandoOcioso(fn: () => void) {
+  if ("requestIdleCallback" in window) {
+    requestIdleCallback(fn, { timeout: 3000 });
+  } else {
+    setTimeout(fn, 1000);
   }
 }
 
