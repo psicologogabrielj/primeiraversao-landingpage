@@ -12,6 +12,9 @@ export const contato = {
   email: "psicologo.gabrielj@gmail.com",
   instagram: "https://www.instagram.com/gabrieljpsi/",
   linkedin: "https://www.linkedin.com/in/gabrielj-psi/",
+  // Perfil da Empresa no Google pelo ID do Knowledge Graph, que não muda se o
+  // nome do perfil mudar (o link de compartilhar só redireciona para cá).
+  perfilGoogle: "https://www.google.com/search?kgmid=/g/11zjjh0t8p",
 };
 
 /**
@@ -102,7 +105,7 @@ export function jsonLd(base: string) {
             areaServed: { "@type": "Country", name: "Brasil" },
           },
         },
-        sameAs: [contato.instagram, contato.linkedin],
+        sameAs: [contato.instagram, contato.linkedin, contato.perfilGoogle],
       },
       {
         "@type": "WebSite",
