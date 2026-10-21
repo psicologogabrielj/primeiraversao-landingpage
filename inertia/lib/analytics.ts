@@ -39,6 +39,7 @@ export function iniciarAnalytics(config: AnalyticsConfig) {
         person_profiles: "identified_only",
         disable_surveys: true,
         persistence: persistenciaPostHog(consentimentoSalvo()),
+        disable_session_recording: consentimentoSalvo() !== "aceito",
       });
       for (const [evento, propriedades] of fila.splice(0)) {
         cliente.capture(evento, propriedades);
@@ -78,10 +79,10 @@ export function rastrearCliqueWhatsApp(origem: string) {
   }
 }
 
-// LGPD: sem o "Aceitar" do banner, nada vai para cookie/localStorage. O
-// Google recebe só sinais anônimos (Consent Mode, ver o layout) e o PostHog
-// guarda o visitante só na memória da aba — as visitas e os cliques ainda
-// contam, mas quem volta aparece como pessoa nova.
+// LGPD: sem o "Aceitar" do banner, nada vai para cookie/localStorage e a
+// navegação não é gravada. O Google recebe só sinais anônimos (Consent Mode,
+// ver o layout) e o PostHog guarda o visitante só na memória da aba — as
+// visitas e os cliques ainda contam, mas quem volta aparece como pessoa nova.
 
 /** Mesma chave lida pelo script do gtag no layout. */
 const CHAVE_CONSENTIMENTO = "consentimento-cookies";
@@ -112,9 +113,11 @@ export function definirConsentimento(consentimento: Consentimento) {
     analytics_storage: estado,
   });
 
-  semQuebrar(() =>
-    posthog?.set_config({ persistence: persistenciaPostHog(consentimento) })
-  );
+  semQuebrar(() => {
+    posthog?.set_config({ persistence: persistenciaPostHog(consentimento) });
+    if (consentimento === "aceito") posthog?.startSessionRecording();
+    else posthog?.stopSessionRecording();
+  });
 }
 
 function persistenciaPostHog(consentimento: Consentimento | null) {

@@ -30,8 +30,9 @@ export function CookieBanner() {
       className="fixed left-3 right-[5.25rem] bottom-3 z-[60] rounded-2xl border border-border bg-card/95 p-5 shadow-2xl backdrop-blur-md animate-in slide-in-from-bottom-5 duration-300 sm:right-auto sm:left-6 sm:bottom-6 sm:max-w-md"
     >
       <p className="text-sm leading-relaxed text-card-foreground">
-        Usamos cookies para entender como o site é usado e medir o resultado
-        dos anúncios. Você pode aceitar ou recusar; o site funciona igual.
+        Usamos cookies e gravações anônimas da navegação para entender como o
+        site é usado e medir o resultado dos anúncios. Você pode aceitar ou
+        recusar; o site funciona igual.
       </p>
       <div className="mt-4 flex justify-end gap-3">
         <Button variant="outline" size="sm" onClick={() => escolher("recusado")}>
