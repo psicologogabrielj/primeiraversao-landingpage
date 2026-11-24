@@ -71,14 +71,23 @@ export function AboutSection() {
                     </p>
                   </div>
 
-                  <div className="grid sm:grid-cols-2 gap-8 mt-10">
+                  {/* A lista de atuação tem itens longos e é mais alta que a de
+                      demandas; por isso ela ganha mais largura no desktop (menos
+                      quebras de linha) e o espaçamento entre itens é enxuto,
+                      para as duas colunas terminarem na mesma altura. */}
+                  <div className="grid gap-x-10 gap-y-8 mt-10 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr]">
                     <div>
                       <h3 className="text-xl font-semibold text-primary mb-4">
                         Atuação e Formações
                       </h3>
-                      <ul className="space-y-2 text-muted-foreground">
+                      <ul className="space-y-1.5 text-[0.95rem] leading-snug text-muted-foreground">
                         {atuacoesEFormacoes.map((item) => (
-                          <li key={item}>• {item}</li>
+                          <li key={item} className="flex gap-2">
+                            <span aria-hidden className="text-primary/70">
+                              •
+                            </span>
+                            <span>{item}</span>
+                          </li>
                         ))}
                       </ul>
                     </div>
@@ -87,9 +96,14 @@ export function AboutSection() {
                       <h3 className="text-xl font-semibold text-primary mb-4">
                         Demandas atendidas
                       </h3>
-                      <ul className="space-y-2 text-muted-foreground">
+                      <ul className="space-y-1.5 text-[0.95rem] leading-snug text-muted-foreground">
                         {demandasAtendidas.map((item) => (
-                          <li key={item}>• {item}</li>
+                          <li key={item} className="flex gap-2">
+                            <span aria-hidden className="text-primary/70">
+                              •
+                            </span>
+                            <span>{item}</span>
+                          </li>
                         ))}
                       </ul>
                     </div>
