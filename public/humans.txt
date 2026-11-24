@@ -5,7 +5,7 @@ Localização: São Paulo, SP - Brasil
 Especialidade: Terapia Cognitivo-Comportamental
 
 /* SITE */
-Última atualização: 2026/10/18
+Última atualização: 2026/11/24
 Linguagem: Português (pt-BR)
 Doctype: HTML5
 Framework: AdonisJS + Inertia (React, SSR) + TypeScript

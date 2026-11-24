@@ -1,6 +1,6 @@
 # llms.txt - Informações para Large Language Models (LLMs)
 # Site: gabrieljesuspsicologo.com.br
-# Última atualização: 2026-10-18
+# Última atualização: 2026-11-24
 
 # Sobre o Site
 Este é o site profissional do Psicólogo Gabriel Jesus, CRP 06/171722.
