@@ -5,7 +5,7 @@ import { rastrear } from "@/lib/analytics";
 import { WhatsAppLink } from "@/components/WhatsAppLink";
 import { anosDeAtuacao } from "@/lib/experiencia";
 
-import psychologistPhoto from "@/assets/gabriel.webp";
+import psychologistPhoto from "@/assets/gabriel-perfil.webp";
 
 export function HeroSection() {
   return (
@@ -71,9 +71,9 @@ export function HeroSection() {
 
             <div className="grid grid-cols-3 gap-4 sm:gap-8 pt-4 sm:pt-8 max-w-lg">
               <div className="text-center sm:text-left">
-                <p className="text-3xl font-bold text-primary">70+</p>
+                <p className="text-3xl font-bold text-primary">95+</p>
                 <p className="text-sm sm:text-base text-muted-foreground">
-                  Pacientes atendidos
+                  Atendimentos realizados
                 </p>
               </div>
               <div className="text-center sm:text-left">
@@ -102,9 +102,9 @@ export function HeroSection() {
               />
               <img
                 src={psychologistPhoto}
-                alt="Gabriel - Psicólogo clínico especialista em Terapia Cognitivo-Comportamental para ansiedade, depressão e TDAH"
-                width={384}
-                height={384}
+                alt="Gabriel, psicólogo clínico — Terapia Cognitivo-Comportamental online para ansiedade, depressão e autismo nível 1 de suporte"
+                width={800}
+                height={800}
                 className="relative w-44 h-44 sm:w-64 sm:h-64 lg:w-96 lg:h-96 object-cover rounded-full shadow-card ring-4 ring-primary/60 ring-offset-4 ring-offset-background"
                 loading="eager"
                 fetchPriority="high"

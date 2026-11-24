@@ -5,7 +5,7 @@ import { anosDeAtuacao } from "@/lib/experiencia";
 // "ansiedade") e cabem no corte do Google (~60 e ~155 caracteres).
 export const TITULO = "Psicólogo Online para Ansiedade e Depressão | Gabriel Jesus";
 export const DESCRICAO =
-  "Psicoterapia online com Gabriel Jesus, psicólogo clínico (CRP 06/171722) formado pela UNIFESP. TCC para ansiedade, depressão e TDAH. Agende pelo WhatsApp.";
+  "Psicoterapia online com Gabriel Jesus, psicólogo clínico (CRP 06/171722) formado pela UNIFESP. TCC para ansiedade, depressão e autismo nível 1 de suporte. Agende pelo WhatsApp.";
 
 export const contato = {
   telefone: "+55-13-98166-4867",
@@ -57,12 +57,14 @@ export function jsonLd(base: string) {
         },
         knowsAbout: [
           "Terapia Cognitivo-Comportamental",
+          "Psicoterapia",
+          "Prática Baseada em Evidências",
           "Ansiedade",
           "Depressão",
-          "TDAH",
+          "Autismo nível 1 de suporte",
+          "Procrastinação",
+          "Autocobrança",
           "Autoestima",
-          "Conflitos amorosos",
-          "Desenvolvimento pessoal",
         ],
         knowsLanguage: "pt-BR",
         sameAs: [contato.instagram, contato.linkedin],
