@@ -1,6 +1,6 @@
 import { Clock, Shield, CreditCard, Video } from "lucide-react";
 import { AnimatedSection } from "./AnimatedSection";
-import onlineTherapyImage from "@/assets/ambiente-atendimento.webp";
+import onlineTherapyImage from "@/assets/gabriel-atendimento.webp";
 
 export const OnlineTherapySection = () => {
   const features = [
@@ -88,14 +88,10 @@ export const OnlineTherapySection = () => {
             <div className="relative group">
               <img
                 src={onlineTherapyImage}
-                alt="Ambiente de trabalho para terapia online - laptop e xícara em mesa de madeira"
-                width={735}
-                height={1028}
-                className="w-full max-h-80 lg:max-h-[560px] object-cover rounded-2xl shadow-hover"
-                style={{
-                  filter:
-                    "sepia(10%) saturate(120%) hue-rotate(340deg) brightness(95%) contrast(105%)",
-                }}
+                alt="Gabriel, psicólogo clínico, em seu consultório para atendimento online"
+                width={900}
+                height={1125}
+                className="w-full max-h-80 lg:max-h-[560px] object-cover object-[50%_28%] rounded-2xl shadow-hover"
                 loading="lazy"
               />
               {/* Overlay sutil para harmonizar com a paleta */}

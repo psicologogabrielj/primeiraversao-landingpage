@@ -1,4 +1,5 @@
 import { AnimatedSection } from "./AnimatedSection";
+import retratoSobre from "@/assets/gabriel-sobre.webp";
 
 // Atuação e formações na ordem pedida pelo Gabriel. "Formação Acadêmica"
 // aparece como item de destaque no meio da lista (e não como título de outro
@@ -39,18 +40,38 @@ export function AboutSection() {
           <AnimatedSection animation="scale-in">
             <div className="bg-card rounded-2xl p-8 lg:p-12 shadow-card hover:shadow-hover transition-all duration-300">
               <div className="prose prose-lg max-w-none">
-                <div className="space-y-6 text-card-foreground">
-                  <p className="text-lg leading-relaxed">
-                    <strong className="text-primary">Bem vindo (a)!</strong>{" "}
-                    Meu nome é Gabriel. Sou psicólogo clínico. No tratamento, eu
-                    espero te ajudar a ganhar real independência sobre a sua
-                    saúde mental, sejam os seus problemas envolvendo diferentes
-                    transtornos, mas também dificuldades da vida que te abalam
-                    de alguma forma. Quero realmente que você viva uma vida que
-                    sente que vale à pena, apesar do desconforto que aparecer.
-                  </p>
+                <div className="text-card-foreground">
+                  {/* Retrato ao lado do texto de abertura; no mobile a foto vem
+                      primeiro, para a apresentação começar pelo rosto. */}
+                  <div className="grid gap-8 lg:grid-cols-[minmax(0,19rem)_1fr] lg:gap-12 lg:items-center">
+                    <div className="relative mx-auto w-full max-w-[15rem] sm:max-w-[17rem] lg:max-w-none">
+                      <div
+                        aria-hidden
+                        className="absolute -inset-2 rounded-2xl bg-primary/20 blur-xl"
+                      />
+                      <img
+                        src={retratoSobre}
+                        alt="Gabriel, psicólogo clínico, com a mão no queixo, em fundo escuro"
+                        width={900}
+                        height={1125}
+                        className="relative w-full aspect-[4/5] object-cover rounded-2xl shadow-card ring-1 ring-primary/30"
+                        loading="lazy"
+                      />
+                    </div>
 
-                  <div className="grid md:grid-cols-2 gap-8 mt-8">
+                    <p className="text-lg leading-relaxed text-center lg:text-left">
+                      <strong className="text-primary">Bem vindo (a)!</strong>{" "}
+                      Meu nome é Gabriel. Sou psicólogo clínico. No tratamento,
+                      eu espero te ajudar a ganhar real independência sobre a
+                      sua saúde mental, sejam os seus problemas envolvendo
+                      diferentes transtornos, mas também dificuldades da vida que
+                      te abalam de alguma forma. Quero realmente que você viva
+                      uma vida que sente que vale à pena, apesar do desconforto
+                      que aparecer.
+                    </p>
+                  </div>
+
+                  <div className="grid sm:grid-cols-2 gap-8 mt-10">
                     <div>
                       <h3 className="text-xl font-semibold text-primary mb-4">
                         Atuação e Formações
@@ -74,7 +95,7 @@ export function AboutSection() {
                     </div>
                   </div>
 
-                  <div className="mt-8 p-6 bg-background-subtle rounded-lg border border-primary/20">
+                  <div className="mt-10 p-6 bg-background-subtle rounded-lg border border-primary/20">
                     <p className="text-center text-muted-foreground italic">
                       "Ter autonomia sobre sua saúde mental, não significa
                       deixar de viver experiências sofridas, mas saber que o

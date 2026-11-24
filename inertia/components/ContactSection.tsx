@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { MessageCircle, Phone, Globe, Clock, Lock } from "lucide-react";
 import { AnimatedSection } from "./AnimatedSection";
 import { WhatsAppLink } from "./WhatsAppLink";
+import retratoContato from "@/assets/gabriel-contato.webp";
 
 export function ContactSection() {
   const infos = [
@@ -51,28 +52,47 @@ export function ContactSection() {
         </AnimatedSection>
 
         <AnimatedSection animation="scale-in">
-          <div className="max-w-3xl mx-auto bg-card border border-border rounded-3xl p-8 sm:p-12 shadow-card text-center">
-            <div className="mx-auto mb-6 w-16 h-16 bg-green-700 rounded-full flex items-center justify-center shadow-lg">
-              <MessageCircle className="h-8 w-8 text-white" />
-            </div>
-            <h3 className="text-2xl sm:text-3xl font-serif font-bold text-card-foreground mb-3">
-              Agende pelo WhatsApp
-            </h3>
-            <p className="text-muted-foreground max-w-xl mx-auto mb-8">
-              Tire suas dúvidas, conheça como funciona o atendimento e marque
-              sua primeira sessão. Respondo rapidamente!
-            </p>
+          <div className="max-w-4xl mx-auto bg-card border border-border rounded-3xl p-8 sm:p-12 shadow-card">
+            <div className="grid gap-10 md:grid-cols-[minmax(0,17rem)_1fr] md:gap-12 md:items-center">
+              <div className="relative mx-auto w-full max-w-[15rem] md:max-w-none">
+                <div
+                  aria-hidden
+                  className="absolute -inset-2 rounded-2xl bg-primary/20 blur-xl"
+                />
+                <img
+                  src={retratoContato}
+                  alt="Gabriel, psicólogo clínico, sentado no consultório"
+                  width={900}
+                  height={1125}
+                  className="relative w-full aspect-[4/5] object-cover object-[50%_35%] rounded-2xl shadow-card ring-1 ring-primary/30"
+                  loading="lazy"
+                />
+              </div>
 
-            <Button
-              asChild
-              size="lg"
-              className="w-full sm:w-auto h-14 px-10 text-base bg-green-700 hover:bg-green-800 text-white shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 [&_svg]:size-5"
-            >
-              <WhatsAppLink origem="Contact Section">
-                <MessageCircle />
-                Conversar no WhatsApp
-              </WhatsAppLink>
-            </Button>
+              <div className="text-center md:text-left">
+                <div className="mx-auto md:mx-0 mb-6 w-16 h-16 bg-green-700 rounded-full flex items-center justify-center shadow-lg">
+                  <MessageCircle className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-serif font-bold text-card-foreground mb-3">
+                  Agende pelo WhatsApp
+                </h3>
+                <p className="text-muted-foreground max-w-xl md:mx-0 mx-auto mb-8">
+                  Tire suas dúvidas, conheça como funciona o atendimento e marque
+                  sua primeira sessão. Respondo rapidamente!
+                </p>
+
+                <Button
+                  asChild
+                  size="lg"
+                  className="w-full sm:w-auto h-14 px-10 text-base bg-green-700 hover:bg-green-800 text-white shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 [&_svg]:size-5"
+                >
+                  <WhatsAppLink origem="Contact Section">
+                    <MessageCircle />
+                    Conversar no WhatsApp
+                  </WhatsAppLink>
+                </Button>
+              </div>
+            </div>
 
             <ul className="mt-10 pt-8 border-t border-border grid gap-6 sm:grid-cols-3 text-left sm:text-center">
               {infos.map((info) => (
