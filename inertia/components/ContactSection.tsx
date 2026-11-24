@@ -18,6 +18,31 @@ export function ContactSection() {
             <h2 className="text-4xl lg:text-5xl font-serif font-bold text-foreground mb-6">
               Entre em Contato
             </h2>
+
+            {/* Aviso vem antes das frases de acolhimento e em destaque: quem
+                chega em crise precisa da informação sobre emergência na
+                primeira leitura, não no rodapé. */}
+            <div
+              role="note"
+              className="mx-auto mb-8 max-w-2xl rounded-xl border border-primary/40 bg-primary/10 px-6 py-5"
+            >
+              <p className="text-base sm:text-lg font-medium italic text-foreground leading-relaxed">
+                AVISO: Não é oferecido atendimento ou aconselhamento de
+                emergência para pessoas em situação de crise suicida. Se estiver
+                se sentindo nesse estado, ligue agora para 188 (CVV – Centro de
+                Valorização da Vida) ou acesse{" "}
+                <a
+                  href="https://www.cvv.org.br"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline underline-offset-4 hover:text-primary transition-colors"
+                >
+                  www.cvv.org.br
+                </a>
+                ;
+              </p>
+            </div>
+
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               O primeiro passo é uma mensagem. Me chame no WhatsApp e a gente
               combina o melhor horário para você.
