@@ -93,19 +93,21 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Photo: no mobile vem antes do texto, menor, para o rosto aparecer na primeira tela */}
+          {/* Foto solta (sem recorte circular): mantém o enquadramento do
+              retrato inteiro. No mobile vem antes do texto, menor, para o
+              rosto aparecer na primeira tela. */}
           <div className="flex justify-center lg:justify-end order-1 lg:order-2">
-            <div className="relative">
+            <div className="relative w-52 sm:w-64 lg:w-full lg:max-w-sm">
               <div
                 aria-hidden
-                className="absolute -inset-3 rounded-full bg-primary/20 blur-2xl"
+                className="absolute -inset-4 rounded-[2rem] bg-primary/25 blur-3xl"
               />
               <img
                 src={psychologistPhoto}
                 alt="Gabriel, psicólogo clínico — Terapia Cognitivo-Comportamental online para ansiedade, depressão e autismo nível 1 de suporte"
                 width={800}
-                height={800}
-                className="relative w-44 h-44 sm:w-64 sm:h-64 lg:w-96 lg:h-96 object-cover rounded-full shadow-card ring-4 ring-primary/60 ring-offset-4 ring-offset-background"
+                height={1000}
+                className="relative w-full aspect-[4/5] object-cover object-[50%_22%] rounded-2xl shadow-card ring-1 ring-primary/40"
                 loading="eager"
                 fetchPriority="high"
               />

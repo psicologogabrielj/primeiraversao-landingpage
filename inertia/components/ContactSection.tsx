@@ -20,14 +20,18 @@ export function ContactSection() {
               Entre em Contato
             </h2>
 
-            {/* Aviso vem antes das frases de acolhimento e em destaque: quem
-                chega em crise precisa da informação sobre emergência na
-                primeira leitura, não no rodapé. */}
+            {/* CTA logo abaixo do título: a visita chega querendo falar, então
+                a ação vem primeiro. O aviso do CVV continua em destaque, mas
+                depois — sem virar a primeira coisa que a pessoa lê. */}
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
+              Me chame no WhatsApp e a gente combina o melhor horário para você.
+            </p>
+
             <div
               role="note"
-              className="mx-auto mb-8 max-w-2xl rounded-xl border border-primary/40 bg-primary/10 px-6 py-5"
+              className="mx-auto mb-8 max-w-2xl rounded-xl border border-primary/25 bg-primary/5 px-5 py-4"
             >
-              <p className="text-base sm:text-lg font-medium italic text-foreground leading-relaxed">
+              <p className="text-sm sm:text-base font-medium italic text-muted-foreground leading-relaxed">
                 AVISO: Não é oferecido atendimento ou aconselhamento de
                 emergência para pessoas em situação de crise suicida. Se estiver
                 se sentindo nesse estado, ligue agora para 188 (CVV – Centro de
@@ -43,11 +47,6 @@ export function ContactSection() {
                 ;
               </p>
             </div>
-
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              O primeiro passo é uma mensagem. Me chame no WhatsApp e a gente
-              combina o melhor horário para você.
-            </p>
           </div>
         </AnimatedSection>
 
