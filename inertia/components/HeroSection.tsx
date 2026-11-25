@@ -94,10 +94,12 @@ export function HeroSection() {
           </div>
 
           {/* Foto solta (sem recorte circular): mantém o enquadramento do
-              retrato inteiro. No mobile vem antes do texto, menor, para o
-              rosto aparecer na primeira tela. */}
-          <div className="flex justify-center lg:justify-end order-1 lg:order-2">
-            <div className="relative w-52 sm:w-64 lg:w-full lg:max-w-sm">
+              retrato inteiro. No desktop o retrato fica centralizado na sua
+              coluna (e não colado na borda direita), para a composição respirar.
+              No mobile vem antes do texto, menor, para o rosto aparecer na
+              primeira tela. */}
+          <div className="flex justify-center order-1 lg:order-2">
+            <div className="relative w-52 sm:w-64 lg:w-full lg:max-w-[30rem]">
               <div
                 aria-hidden
                 className="absolute -inset-4 rounded-[2rem] bg-primary/25 blur-3xl"
