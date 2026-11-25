@@ -1,17 +1,25 @@
 import { AnimatedSection } from "./AnimatedSection";
 import retratoSobre from "@/assets/gabriel-sobre.webp";
 
-// Atuação e formações na ordem pedida pelo Gabriel. "Formação Acadêmica"
-// aparece como item de destaque no meio da lista (e não como título de outro
-// bloco), então a lista é uma só, sem subdivisões.
+// Atuação e formações em dois grupos: "Psicoterapia" e "Formação Acadêmica" são
+// as categorias (sem marcador, em destaque) e os itens abaixo delas são o que
+// compõe cada uma.
 const atuacoesEFormacoes = [
-  "Psicoterapia",
-  "Terapia Cognitivo-Comportamental",
-  "Tomada de decisão via paradigma da PBE",
-  "Formação Acadêmica",
-  "Cursos de formação em PBE",
-  "1ª turma de Especialização no InPBE",
-  "Formação em psicoterapia para Autismo nível 1 de suporte",
+  {
+    categoria: "Psicoterapia",
+    itens: [
+      "Terapia Cognitivo-Comportamental",
+      "Tomada de decisão via paradigma da PBE",
+    ],
+  },
+  {
+    categoria: "Formação Acadêmica",
+    itens: [
+      "Cursos de formação em PBE",
+      "1ª turma de Especialização no InPBE",
+      "Formação em psicoterapia para Autismo nível 1 de suporte",
+    ],
+  },
 ];
 
 const demandasAtendidas = [
@@ -71,25 +79,33 @@ export function AboutSection() {
                     </p>
                   </div>
 
-                  {/* A lista de atuação tem itens longos e é mais alta que a de
-                      demandas; por isso ela ganha mais largura no desktop (menos
-                      quebras de linha) e o espaçamento entre itens é enxuto,
-                      para as duas colunas terminarem na mesma altura. */}
+                  {/* "Psicoterapia" e "Formação Acadêmica" são categorias, não
+                      itens de lista: entram em negrito, sem marcador, e o que
+                      vem abaixo é o que compõe cada uma. */}
                   <div className="grid gap-x-10 gap-y-8 mt-10 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr]">
                     <div>
                       <h3 className="text-xl font-semibold text-primary mb-4">
                         Atuação e Formações
                       </h3>
-                      <ul className="space-y-1.5 text-[0.95rem] leading-snug text-muted-foreground">
-                        {atuacoesEFormacoes.map((item) => (
-                          <li key={item} className="flex gap-2">
-                            <span aria-hidden className="text-primary/70">
-                              •
-                            </span>
-                            <span>{item}</span>
-                          </li>
+                      <div className="space-y-5 text-[0.95rem] leading-snug text-muted-foreground">
+                        {atuacoesEFormacoes.map((grupo) => (
+                          <div key={grupo.categoria} className="space-y-2">
+                            <p className="font-semibold text-card-foreground">
+                              {grupo.categoria}
+                            </p>
+                            <ul className="space-y-1.5 pl-4">
+                              {grupo.itens.map((item) => (
+                                <li key={item} className="flex gap-2">
+                                  <span aria-hidden className="text-primary/70">
+                                    •
+                                  </span>
+                                  <span>{item}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
                         ))}
-                      </ul>
+                      </div>
                     </div>
 
                     <div>
